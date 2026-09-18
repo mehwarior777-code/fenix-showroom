@@ -198,8 +198,8 @@
     <div class="handle" id="cmpHandle"><span>◀</span><span>▶</span></div>
   </div>
   <div class="cmp-chips">
-    <button class="chip" data-pos="12">Лицевая часть</button>
-    <button class="chip" data-pos="88">Админка</button>
+    <button class="chip" data-pos="100">Лицевая часть</button>
+    <button class="chip" data-pos="0">Админка</button>
     <button class="chip on" data-pos="50">Посередине</button>
   </div>
 </section>
@@ -257,7 +257,7 @@
   // ===== слайдер фронт/админка =====
   var cmp=document.getElementById('cmp'), handle=document.getElementById('cmpHandle');
   var pos=50, dragging=false;
-  function setPos(p){pos=Math.max(6,Math.min(94,p));cmp.style.setProperty('--pos',pos+'%');}
+  function setPos(p){pos=Math.max(0,Math.min(100,p));cmp.style.setProperty('--pos',pos+'%');}
   setPos(50);
   handle.addEventListener('mousedown',function(e){dragging=true;e.preventDefault();});
   handle.addEventListener('touchstart',function(e){dragging=true;e.preventDefault();},{passive:false});
