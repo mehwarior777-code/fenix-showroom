@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Шоурум — что вы получите на Битрикс24</title>
+<!--
+  ШОУРУМ-ВИТРИНА
+  Что можно поменять:
+  1. TELEGRAM_LINK — ссылка на ваш Telegram для заявок.
+  2. Тексты в блоке front (лицевая часть) — подпишите под конкретного клиента.
+  3. Услуги в блоке services — добавить/убрать карточки.
+-->
+<style>
+  :root{
+    --bg:#0b0f1a; --card:#131a2b; --line:#1f2a44;
+    --txt:#e8edf7; --muted:#93a1c0;
+    --blue:#2fc6f6; --blue2:#2f7bf6; --green:#36d399; --amber:#f6b93b; --red:#ff6b6b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',Roboto,Arial,sans-serif;line-height:1.55;overflow-x:hidden}
+  a{color:var(--blue);text-decoration:none}
+  .top{position:sticky;top:0;z-index:50;background:rgba(11,15,26,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .top-in{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:800;letter-spacing:.5px}
+  .logo b{color:var(--blue)}
+  nav a{color:var(--muted);margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--txt)}
+  .hero{max-width:1100px;margin:0 auto;padding:70px 20px 30px;text-align:center}
+  .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--muted);margin-bottom:20px}
+  .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.15;font-weight:800}
+  .hero h1 span{background:linear-gradient(90deg,var(--blue),var(--blue2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{max-width:640px;margin:18px auto 26px;color:var(--muted);font-size:17px}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;background:linear-gradient(90deg,var(--blue),var(--blue2));color:#04121f;font-weight:700;padding:13px 30px;border-radius:12px;font-size:16px}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--blue)}
+  .sec{max-width:1100px;margin:0 auto;padding:60px 20px}
+  .sec h2{font-size:clamp(22px,3.4vw,32px);font-weight:800;text-align:center}
+  .sec-sub{text-align:center;color:var(--muted);margin:10px 0 28px}
+  /* === СЛАЙДЕР ФРОНТ / АДМИНКА === */
+  .cmp{position:relative;height:560px;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.45);user-select:none;touch-action:none}
+  .pane{position:absolute;top:0;bottom:0;left:0;width:100%}
+  .pane-front{z-index:1}
+  .pane-admin{clip-path:inset(0 0 0 var(--pos,50%));z-index:2}
+  .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);transform:translateX(-50%);width:46px;z-index:3;cursor:ew-resize;display:flex;align-items:center;justify-content:space-around;background:rgba(255,255,255,.06);border-left:1px solid rgba(255,255,255,.25);border-right:1px solid rgba(255,255,255,.25);color:var(--blue);font-size:14px;text-shadow:0 0 12px #000}
+  .tag{position:absolute;top:14px;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;z-index:4}
+  .tag-l{left:14px;background:rgba(15,32,20,.85);border:1px solid var(--green);color:var(--green)}
+  .tag-r{right:14px;background:rgba(20,25,45,.85);border:1px solid var(--blue);color:var(--blue)}
+  /* лицевая часть — мини-лендинг */
+  .site{position:absolute;inset:0;background:linear-gradient(160deg,#101c33,#0b0f1a 55%);display:flex;flex-direction:column;padding:26px}
+  .site-nav{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:14px}
+  .site-nav .brand{color:var(--txt);font-weight:800;font-size:15px;margin-right:auto}
+  .site-btn{background:linear-gradient(90deg,var(--blue),var(--blue2));color:#04121f;font-weight:700;padding:7px 16px;border-radius:9px;font-size:13px}
+  .site-hero{margin:auto 0;text-align:center;padding:0 10px}
+  .site-hero h3{font-size:clamp(24px,3.6vw,36px);font-weight:800;margin-bottom:12px}
+  .site-hero p{color:var(--muted);max-width:480px;margin:0 auto 22px}
+  .site-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;align-items:center}
+  .site-btn.big{padding:12px 26px;font-size:15px}
+  .site-phone{color:var(--muted);font-size:14px}
+  .site-feats{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .site-feats .f{border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-size:13px;color:var(--muted);background:rgba(255,255,255,.03)}
+  /* админка — имитация Битрикс24 */
+  .b24{position:absolute;inset:0;background:#0d1526;display:flex}
+  .b24-side{width:150px;background:#0a1120;border-right:1px solid var(--line);padding:16px 12px;flex-shrink:0}
+  .b24-logo{background:linear-gradient(135deg,var(--blue),var(--blue2));width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#04121f;margin-bottom:18px}
+  .b24-menu span{display:block;padding:9px 12px;border-radius:9px;font-size:13px;color:var(--muted);margin-bottom:4px}
+  .b24-menu span.on{background:rgba(47,246,246,.1);color:var(--blue);font-weight:700}
+  .b24-main{flex:1;padding:16px 18px;overflow:hidden;display:flex;flex-direction:column;gap:14px}
+  .b24-top{font-size:14px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+  .b24-sum{color:var(--green);font-weight:700}
+  .b24-funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex:1;align-content:start}
+  .stage{background:#101a2f;border:1px solid var(--line);border-radius:12px;padding:10px;min-height:150px}
+  .stage b{display:block;font-size:12px;color:var(--muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:.4px}
+  .card{background:#16223c;border-radius:9px;padding:8px 10px;font-size:12px;margin-bottom:6px;border-left:3px solid var(--blue)}
+  .card i{color:var(--green);font-style:normal;font-weight:700}
+  .b24-row{display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+  .b24-tasks{background:#101a2f;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:12px;color:var(--muted)}
+  .b24-tasks b{color:var(--txt)}
+  .b24-contacts{background:#101a2f;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:12px;color:var(--muted)}
+  .cmp-chips{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .chip{background:#131a2b;border:1px solid var(--line);color:var(--muted);padding:9px 18px;border-radius:999px;cursor:pointer;font-size:14px;font-family:inherit}
+  .chip:hover,.chip.on{border-color:var(--blue);color:var(--blue)}
+  /* === УСЛУГИ === */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+  .card-s{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--card);transition:transform .15s,border-color .15s}
+  .card-s:hover{transform:translateY(-4px);border-color:var(--blue)}
+  .card-s .ic{font-size:30px;margin-bottom:12px}
+  .card-s h3{font-size:17px;margin-bottom:8px}
+  .card-s p{font-size:14px;color:var(--muted);margin-bottom:14px}
+  .price{font-weight:800;font-size:15px;color:var(--blue)}
+  .price small{color:var(--muted);font-weight:400;font-size:12px}
+  .ready{font-size:12px;color:var(--green)}
+  /* === ЗАКАЗ === */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:30px}
+  .step{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--card)}
+  .step .n{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#04121f;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
+  .step h3{font-size:16px;margin-bottom:6px}
+  .step p{font-size:14px;color:var(--muted)}
+  .center{text-align:center}
+  /* === ИИ-ЧАТ === */
+  .chat{border:1px solid var(--line);border-radius:18px;background:var(--card);max-width:560px;margin:0 auto;overflow:hidden}
+  .chat-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;font-weight:700}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .chat-body{padding:18px;display:flex;flex-direction:column;gap:10px;min-height:150px}
+  .bub{max-width:80%;padding:11px 15px;border-radius:14px;font-size:14px}
+  .bub.ai{background:#16223c;border-bottom-left-radius:4px}
+  .bub.me{background:linear-gradient(90deg,var(--blue),var(--blue2));color:#04121f;align-self:flex-end;border-bottom-right-radius:4px;font-weight:600}
+  .chat-foot{padding:12px 18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);text-align:center}
+  footer{border-top:1px solid var(--line);padding:30px 20px;text-align:center;color:var(--muted);font-size:13px}
+  footer a{color:var(--blue)}
+  @media(max-width:720px){.cmp{height:460px}.b24-side{width:110px}.b24-funnel{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="logo">🪟 ШОУРУМ</div>
+    <nav>
+      <a href="#showcase">Витрина</a>
+      <a href="#services">Услуги</a>
+      <a href="#order">Заказать</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="badge">● Ваш будущий сайт — до заказа</p>
+  <h1>Посмотрите, что вы получите, <span>прямо сейчас</span></h1>
+  <p class="sub">Это живая витрина: слева — лицевая часть вашего будущего сайта глазами посетителя, справа — админка, которую будете видеть вы. Потяните ползунок.</p>
+  <div class="hero-cta">
+    <a class="btn" href="#order">Заказать</a>
+    <a class="btn ghost" href="#services">Все услуги</a>
+  </div>
+</section>
+
+<section class="sec" id="showcase">
+  <h2>Фронт ↔ Админка</h2>
+  <p class="sec-sub">Потяните ползунок мышкой или проведите пальцем</p>
+  <div class="cmp" id="cmp" style="--pos:50%">
+    <div class="pane pane-front">
+      <div class="site">
+        <div class="site-nav"><span class="brand">✳ Название вашей компании</span><span>Услуги</span><span>О нас</span><span>Контакты</span><span class="site-btn">Заявка</span></div>
+        <div class="site-hero">
+          <h3>Короткое обещание клиенту</h3>
+          <p>Пара слов о том, чем вы полезны и почему вас выбирают. Сайт уже адаптирован под телефон и компьютер.</p>
+          <div class="site-actions"><span class="site-btn big">Оставить заявку</span><span class="site-phone">+7 900 000-00-00</span></div>
+        </div>
+        <div class="site-feats">
+          <div class="f">✔ Что вы даёте</div><div class="f">✔ Чем отличаетесь</div><div class="f">✔ Как заказать</div>
+        </div>
+      </div>
+      <div class="tag tag-l">🎨 Лицевая часть — видит посетитель</div>
+    </div>
+
+    <div class="pane pane-admin">
+      <div class="b24">
+        <div class="b24-side">
+          <div class="b24-logo">B24</div>
+          <div class="b24-menu">
+            <span class="on">Воронки</span><span>Сделки</span><span>Задачи</span><span>Контакты</span><span>Чаты</span><span>Телефония</span>
+          </div>
+        </div>
+        <div class="b24-main">
+          <div class="b24-top">Воронка продаж — «Заказы» <span class="b24-sum">12 500 ₽ в работе</span></div>
+          <div class="b24-funnel">
+            <div class="stage"><b>Новая заявка</b>
+              <div class="card">Анна · сайт-визитка<br><i>2 000 ₽</i></div>
+              <div class="card">Игорь · TG-бот<br><i>1 500 ₽</i></div>
+            </div>
+            <div class="stage"><b>Контакт</b>
+              <div class="card">Ольга · Битрикс<br><i>3 000 ₽</i></div>
+            </div>
+            <div class="stage"><b>Счёт</b>
+              <div class="card">Сергей · ИИ-ассистент<br><i>500 ₽</i></div>
+            </div>
+            <div class="stage"><b>Оплачено</b>
+              <div class="card">Мария · настройка<br><i>4 000 ₽</i></div>
+            </div>
+          </div>
+          <div class="b24-row">
+            <div class="b24-tasks"><b>Мои задачи</b> &nbsp;☑ Собрать сайт Анне&nbsp;&nbsp; ☐ Отправить счёт Игорю&nbsp;&nbsp; ☐ Позвонить Ольге</div>
+            <div class="b24-contacts"><b>Контакты</b> · Анна, Игорь, Ольга, Сергей, Мария — все заявки уже здесь, ничего не теряется</div>
+          </div>
+        </div>
+      </div>
+      <div class="tag tag-r">⚙️ Админка — видите вы</div>
+    </div>
+
+    <div class="handle" id="cmpHandle"><span>◀</span><span>▶</span></div>
+  </div>
+  <div class="cmp-chips">
+    <button class="chip" data-pos="12">Лицевая часть</button>
+    <button class="chip" data-pos="88">Админка</button>
+    <button class="chip on" data-pos="50">Посередине</button>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <h2>Все услуги — в одном месте</h2>
+  <p class="sec-sub">То, что я умею делать. Каждая услуга — с ценой и сроком.</p>
+  <div class="grid">
+    <div class="card-s"><div class="ic">🤖</div><h3>ИИ-ассистент на ваш ПК</h3><p>Личный помощник на компьютере: тексты, файлы, задачи, память между сессиями. Понятная инструкция на русском.</p><div class="price">500 ₽ <small>/ фикс</small></div><div class="ready">● готово</div></div>
+    <div class="card-s"><div class="ic">🌐</div><h3>Сайт-визитка на Битрикс24</h3><p>Одностраничник на бесплатном тарифе: услуги, контакты, форма заявки. Ссылка вида vash-brend.b24.site.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
+    <div class="card-s"><div class="ic">🧲</div><h3>Воронка продаж + CRM</h3><p>Этапы, сделки, заявки из Telegram и сайта сами попадают в воронку. Ни один клиент не теряется.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
+    <div class="card-s"><div class="ic">💬</div><h3>Телеграм-бот с ИИ</h3><p>Бот, который отвечает на русском: отвечает на вопросы, принимает заявки, работает 24/7.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
+    <div class="card-s"><div class="ic">⚙️</div><h3>Настройка Битрикс24 под ключ</h3><p>Роботы, автоматизация, права доступа, интеграции. Вы получите готовый рабочий портал — и я покажу, как им пользоваться.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
+    <div class="card-s"><div class="ic">📄</div><h3>Микроуслуги через нейросеть</h3><p>Тексты, объявления, презентации, таблицы Excel, описания товаров, ответы клиентам. Быстро и дёшево.</p><div class="price">от 300 ₽</div><div class="ready">● готово</div></div>
+    <div class="card-s"><div class="ic">🔁</div><h3>Автоматизация и интеграции</h3><p>Связать сайт, Telegram, таблицы и Битрикс через вебхуки и REST API. Рутина — машинам, вы занимаетесь делом.</p><div class="price">от 1 500 ₽</div><div class="ready">● по запросу</div></div>
+    <div class="card-s"><div class="ic">🖥️</div><h3>Помощь с компьютером</h3><p>Настройка, чистка от мусора, установка софта, перенос файлов. Понятно объясню, что и зачем делаю.</p><div class="price">от 500 ₽</div><div class="ready">● по запросу</div></div>
+  </div>
+</section>
+
+<section class="sec" id="ai">
+  <h2>Живой ИИ-чат — тоже будет</h2>
+  <p class="sec-sub">На вашем сайте посетитель сможет спросить и сразу получить ответ. Вот как это будет выглядеть:</p>
+  <div class="chat">
+    <div class="chat-head"><span class="dot"></span> ИИ-консультант на сайте</div>
+    <div class="chat-body">
+      <div class="bub ai">Здравствуйте! 👋 Чем могу помочь? Расскажу про услуги, цены и сроки.</div>
+      <div class="bub me">Сколько стоит сайт-визитка?</div>
+      <div class="bub ai">От 1 500 ₽, срок — 2–3 дня. Могу собрать его уже на этой неделе. Оставить заявку?</div>
+    </div>
+    <div class="chat-foot">Такой чат подключаем к вашему сайту — отвечает круглосуточно</div>
+  </div>
+</section>
+
+<section class="sec" id="order">
+  <h2>Как заказать</h2>
+  <p class="sec-sub">Три шага — и работа началась</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Напишите в Telegram</h3><p>Пара слов о себе и что нужно. Я отвечу в течение часа.</p></div>
+    <div class="step"><div class="n">2</div><h3>Выберите услугу</h3><p>Зафиксируем цену и срок. Никаких скрытых доплат.</p></div>
+    <div class="step"><div class="n">3</div><h3>Получите результат</h3><p>Готово + понятная инструкция. Работаю честно: что не умею — скажу сразу.</p></div>
+  </div>
+  <div class="center">
+    <a class="btn" id="tgBtn" href="https://t.me/mehwarior777" target="_blank" rel="noopener">✈️ Написать в Telegram</a>
+  </div>
+</section>
+
+<footer>
+  Шоурум собран на базе Битрикс24 · бесплатный тариф<br>
+  Заявки: <a id="tgFoot" href="https://t.me/mehwarior777" target="_blank" rel="noopener">Telegram</a> · Готово за 1–3 дня · Самозанятый, всё официально
+</footer>
+
+<script>
+  // ===== слайдер фронт/админка =====
+  var cmp=document.getElementById('cmp'), handle=document.getElementById('cmpHandle');
+  var pos=50, dragging=false;
+  function setPos(p){pos=Math.max(6,Math.min(94,p));cmp.style.setProperty('--pos',pos+'%');}
+  setPos(50);
+  handle.addEventListener('mousedown',function(e){dragging=true;e.preventDefault();});
+  handle.addEventListener('touchstart',function(e){dragging=true;e.preventDefault();},{passive:false});
+  window.addEventListener('mousemove',function(e){if(!dragging)return;var r=cmp.getBoundingClientRect();setPos((e.clientX-r.left)/r.width*100);});
+  window.addEventListener('touchmove',function(e){if(!dragging)return;var r=cmp.getBoundingClientRect();setPos((e.touches[0].clientX-r.left)/r.width*100);},{passive:false});
+  window.addEventListener('mouseup',function(){dragging=false;});
+  window.addEventListener('touchend',function(){dragging=false;});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft')setPos(pos-4);
+    if(e.key==='ArrowRight')setPos(pos+4);
+  });
+  // кнопки-чипы
+  var chips=document.querySelectorAll('.chip');
+  chips.forEach(function(ch){
+    ch.addEventListener('click',function(){
+      setPos(parseFloat(ch.getAttribute('data-pos')));
+      chips.forEach(function(c){c.classList.remove('on');});
+      ch.classList.add('on');
+    });
+  });
+  // ===== ссылка на Telegram: поменяйте здесь один раз =====
+  var TG='https://t.me/mehwarior777';
+  document.getElementById('tgBtn').href=TG;
+  document.getElementById('tgFoot').href=TG;
+</script>
+</body>
+</html>
