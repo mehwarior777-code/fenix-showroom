@@ -7,9 +7,10 @@
 <!--
   ШОУРУМ-ВИТРИНА
   Что можно поменять:
-  1. TELEGRAM_LINK — ссылка на ваш Telegram для заявок.
-  2. Тексты в блоке front (лицевая часть) — подпишите под конкретного клиента.
-  3. Услуги в блоке services — добавить/убрать карточки.
+  1. TG — ссылка на Telegram для заявок (кнопки внизу).
+  2. Тексты блока front — под конкретного клиента.
+  3. Услуги в блоке services.
+  4. Чат: работает через бесплатный text.pollinations.ai; при сбое — запасные ответы JS.
 -->
 <style>
   :root{
@@ -48,7 +49,6 @@
   .tag{position:absolute;top:14px;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;z-index:4}
   .tag-l{left:14px;background:rgba(15,32,20,.85);border:1px solid var(--green);color:var(--green)}
   .tag-r{right:14px;background:rgba(20,25,45,.85);border:1px solid var(--blue);color:var(--blue)}
-  /* лицевая часть — мини-лендинг */
   .site{position:absolute;inset:0;background:linear-gradient(160deg,#101c33,#0b0f1a 55%);display:flex;flex-direction:column;padding:26px}
   .site-nav{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:14px}
   .site-nav .brand{color:var(--txt);font-weight:800;font-size:15px;margin-right:auto}
@@ -61,7 +61,6 @@
   .site-phone{color:var(--muted);font-size:14px}
   .site-feats{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
   .site-feats .f{border:1px solid var(--line);border-radius:12px;padding:10px 16px;font-size:13px;color:var(--muted);background:rgba(255,255,255,.03)}
-  /* админка — имитация Битрикс24 */
   .b24{position:absolute;inset:0;background:#0d1526;display:flex}
   .b24-side{width:150px;background:#0a1120;border-right:1px solid var(--line);padding:16px 12px;flex-shrink:0}
   .b24-logo{background:linear-gradient(135deg,var(--blue),var(--blue2));width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#04121f;margin-bottom:18px}
@@ -104,11 +103,17 @@
   .chat-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;font-weight:700}
   .dot{width:9px;height:9px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-  .chat-body{padding:18px;display:flex;flex-direction:column;gap:10px;min-height:150px}
-  .bub{max-width:80%;padding:11px 15px;border-radius:14px;font-size:14px}
+  .chat-body{padding:18px;display:flex;flex-direction:column;gap:10px;min-height:150px;max-height:300px;overflow-y:auto}
+  .bub{max-width:80%;padding:11px 15px;border-radius:14px;font-size:14px;white-space:pre-wrap;word-break:break-word}
   .bub.ai{background:#16223c;border-bottom-left-radius:4px}
   .bub.me{background:linear-gradient(90deg,var(--blue),var(--blue2));color:#04121f;align-self:flex-end;border-bottom-right-radius:4px;font-weight:600}
-  .chat-foot{padding:12px 18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);text-align:center}
+  .bub.typing{color:var(--muted);font-style:italic;background:#16223c;border-bottom-left-radius:4px}
+  .chat-foot{padding:12px 14px;border-top:1px solid var(--line);display:flex;gap:8px;align-items:center}
+  .chat-input{flex:1;background:#0e1730;border:1px solid var(--line);border-radius:10px;color:var(--txt);padding:10px 14px;font-size:14px;font-family:inherit;outline:none;min-width:0}
+  .chat-input:focus{border-color:var(--blue)}
+  .chat-send{background:linear-gradient(90deg,var(--blue),var(--blue2));color:#04121f;border:0;border-radius:10px;padding:10px 18px;font-weight:700;cursor:pointer;font-size:15px;flex-shrink:0}
+  .chat-send:disabled{opacity:.5;cursor:default}
+  .chat-hint{margin:8px 18px 6px;font-size:11px;color:var(--muted);text-align:center}
   footer{border-top:1px solid var(--line);padding:30px 20px;text-align:center;color:var(--muted);font-size:13px}
   footer a{color:var(--blue)}
   @media(max-width:720px){.cmp{height:460px}.b24-side{width:110px}.b24-funnel{grid-template-columns:repeat(2,1fr)}}
@@ -215,16 +220,18 @@
 </section>
 
 <section class="sec" id="ai">
-  <h2>Живой ИИ-чат — тоже будет</h2>
-  <p class="sec-sub">На вашем сайте посетитель сможет спросить и сразу получить ответ. Вот как это будет выглядеть:</p>
+  <h2>Живой ИИ-чат — уже работает</h2>
+  <p class="sec-sub">Посетитель сайта может спросить и сразу получить ответ. Попробуйте прямо сейчас:</p>
   <div class="chat">
     <div class="chat-head"><span class="dot"></span> ИИ-консультант на сайте</div>
-    <div class="chat-body">
-      <div class="bub ai">Здравствуйте! 👋 Чем могу помочь? Расскажу про услуги, цены и сроки.</div>
-      <div class="bub me">Сколько стоит сайт-визитка?</div>
-      <div class="bub ai">От 1 500 ₽, срок — 2–3 дня. Могу собрать его уже на этой неделе. Оставить заявку?</div>
+    <div class="chat-body" id="chatList">
+      <div class="bub ai">Здравствуйте! 👋 Я нейросеть на этом сайте. Спросите про услуги, цены и сроки.</div>
     </div>
-    <div class="chat-foot">Такой чат подключаем к вашему сайту — отвечает круглосуточно</div>
+    <div class="chat-foot">
+      <input class="chat-input" id="chatIn" type="text" placeholder="Ваш вопрос..." autocomplete="off">
+      <button class="chat-send" id="chatBtn" type="button">➤</button>
+    </div>
+    <div class="chat-hint">Ответы даёт нейросеть — могут быть неточности. Точные цены и сроки уточняйте в Telegram.</div>
   </div>
 </section>
 
@@ -262,7 +269,6 @@
     if(e.key==='ArrowLeft')setPos(pos-4);
     if(e.key==='ArrowRight')setPos(pos+4);
   });
-  // кнопки-чипы
   var chips=document.querySelectorAll('.chip');
   chips.forEach(function(ch){
     ch.addEventListener('click',function(){
@@ -271,10 +277,41 @@
       ch.classList.add('on');
     });
   });
-  // ===== ссылка на Telegram: поменяйте здесь один раз =====
-  var TG='https://t.me/mehwarior777';
-  document.getElementById('tgBtn').href=TG;
-  document.getElementById('tgFoot').href=TG;
+
+  // ===== живой ИИ-чат (бесплатный эндпоинт text.pollinations.ai) =====
+  var chatList=document.getElementById('chatList'),
+      chatIn=document.getElementById('chatIn'),
+      chatBtn=document.getElementById('chatBtn');
+  function addBub(text,who){
+    var d=document.createElement('div');
+    d.className='bub '+(who==='me'?'me':(who==='typing'?'typing':'ai'));
+    d.textContent=text;
+    chatList.appendChild(d);
+    chatList.scrollTop=chatList.scrollHeight;
+    return d;
+  }
+  function canned(q){
+    var s=q.toLowerCase();
+    if(s.indexOf('цен')>=0||s.indexOf('сто')>=0)return 'Цены: ИИ-ассистент на ПК — 500 ₽, сайт-визитка — от 1 500 ₽, воронка+CRM — от 2 000 ₽, TG-бот с ИИ — от 1 500 ₽. Точный расчёт — в Telegram.';
+    if(s.indexOf('битрикс')>=0)return 'Настрою Битрикс24 под ключ: воронки, роботы, сайт + CRM — от 2 000 ₽. Пример — на этой странице, потяните ползунок.';
+    if(s.indexOf('срок')>=0||s.indexOf('долго')>=0)return 'Стандартный срок — 1–3 дня. Срочно? Напишите в Telegram, договоримся.';
+    if(s.indexOf('телеграм')>=0||s.indexOf('связат')>=0||s.indexOf('контакт')>=0)return 'Напишите мне в Telegram: @mehwarior777';
+    return 'Отличный вопрос! Точнее отвечу в Telegram: @mehwarior777. А здесь — услуги и цены ниже на странице.';
+  }
+  function askAI(q){
+    addBub(q,'me');
+    var t=addBub('печатает…','typing');
+    chatBtn.disabled=true; chatIn.disabled=true;
+    var ctl=new AbortController(), tm=setTimeout(function(){ctl.abort();},15000);
+    var sys='Отвечай на русском, кратко (до 3 предложений), как консультант сайта услуг ИИ-ассистента и настройки Битрикс24. ';
+    fetch('https://text.pollinations.ai/'+encodeURIComponent(sys+q),{signal:ctl.signal})
+      .then(function(r){return r.text();})
+      .then(function(txt){t.textContent=(txt.trim()||canned(q));})
+      .catch(function(){t.textContent=canned(q);})
+      .finally(function(){clearTimeout(tm);chatBtn.disabled=false;chatIn.disabled=false;chatIn.focus();});
+  }
+  chatBtn.addEventListener('click',function(){var q=chatIn.value.trim();if(q){askAI(q);chatIn.value='';}});
+  chatIn.addEventListener('keydown',function(e){if(e.key==='Enter'){var q=chatIn.value.trim();if(q){askAI(q);chatIn.value='';}}});
 </script>
 </body>
 </html>
