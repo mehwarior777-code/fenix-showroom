@@ -116,7 +116,26 @@
   .chat-hint{margin:8px 18px 6px;font-size:11px;color:var(--muted);text-align:center}
   footer{border-top:1px solid var(--line);padding:30px 20px;text-align:center;color:var(--muted);font-size:13px}
   footer a{color:var(--blue)}
-  @media(max-width:720px){.cmp{height:460px}.b24-side{width:110px}.b24-funnel{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:720px){
+    .top-in{padding:12px 14px}
+    nav a{margin-left:14px;font-size:13px}
+    .hero{padding:48px 16px 18px}
+    .hero h1{font-size:clamp(26px,7vw,34px)}
+    .sec{padding:44px 16px}
+    .btn{width:100%;max-width:340px;text-align:center;padding:14px 20px;font-size:16px}
+    .hero-cta{gap:10px}
+    .cmp{height:460px}
+    .b24-side{width:110px}
+    .b24-funnel{grid-template-columns:repeat(2,1fr)}
+    .b24-row{grid-template-columns:1fr}
+    .chip{flex:0 0 auto;padding:11px 20px;font-size:13px}
+    .cmp-chips{gap:8px}
+    .tag{font-size:10px;padding:5px 9px}
+    .site{padding:16px}
+    .chat-foot{padding:10px}
+    .chat-input{font-size:16px}
+    .chat-send{padding:12px 20px}
+  }
 </style>
 </head>
 <body>
@@ -259,8 +278,8 @@
   var pos=50, dragging=false;
   function setPos(p){pos=Math.max(0,Math.min(100,p));cmp.style.setProperty('--pos',pos+'%');}
   setPos(50);
-  handle.addEventListener('mousedown',function(e){dragging=true;e.preventDefault();});
-  handle.addEventListener('touchstart',function(e){dragging=true;e.preventDefault();},{passive:false});
+  cmp.addEventListener('mousedown',function(e){dragging=true;e.preventDefault();});
+  cmp.addEventListener('touchstart',function(e){dragging=true;e.preventDefault();},{passive:false});
   window.addEventListener('mousemove',function(e){if(!dragging)return;var r=cmp.getBoundingClientRect();setPos((e.clientX-r.left)/r.width*100);});
   window.addEventListener('touchmove',function(e){if(!dragging)return;var r=cmp.getBoundingClientRect();setPos((e.touches[0].clientX-r.left)/r.width*100);},{passive:false});
   window.addEventListener('mouseup',function(){dragging=false;});
