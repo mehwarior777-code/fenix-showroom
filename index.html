@@ -151,28 +151,15 @@
   .price{font-weight:800;font-size:16px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 12px rgba(106,124,255,.5))}
   .price small{color:var(--muted);font-weight:400;font-size:12px}
   .ready{font-size:12px;color:var(--green);text-shadow:0 0 10px rgba(61,220,151,.5)}
-  /* === услуги: кольцо-орбита — центр открыт, сквозь кольцо видно фон === */
-  .ring{position:relative;margin:0 auto;--ring-r:clamp(200px,26vw,260px);width:calc((var(--ring-r) + 100px)*2);height:calc((var(--ring-r) + 96px)*2)}
-  .ring::before,.ring::after{content:'';position:absolute;left:50%;top:50%;border-radius:50%;pointer-events:none;z-index:1;transform:translate(-50%,-50%)}
-  .ring::before{width:calc(var(--ring-r)*2);height:calc(var(--ring-r)*2);border:1px dashed rgba(106,124,255,.4);box-shadow:0 0 46px rgba(106,124,255,.14),inset 0 0 46px rgba(106,124,255,.08);animation:rspin 70s linear infinite}
-  .ring::after{width:calc(var(--ring-r)*1.34);height:calc(var(--ring-r)*1.34);border:1px dashed rgba(167,139,250,.34);box-shadow:0 0 30px rgba(167,139,250,.12),inset 0 0 30px rgba(167,139,250,.08);animation:rspin2 100s linear infinite}
-  @keyframes rspin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-  @keyframes rspin2{from{transform:translate(-50%,-50%) rotate(360deg)}to{transform:translate(-50%,-50%) rotate(0deg)}}
-  .ring .card-s{position:absolute;left:50%;top:50%;width:186px;margin:-88px 0 0 -93px;z-index:2}
-  .ring .card-s:hover{--lift:10px;--scale:1.045}
-  .ring .card-s:nth-child(1){transform:rotate(0deg) translate(0,calc(0px - var(--ring-r) - var(--lift,0px))) rotate(0deg) scale(var(--scale,1))}
-  .ring .card-s:nth-child(2){transform:rotate(45deg) translate(0,calc(0px - var(--ring-r) - var(--lift,0px))) rotate(-45deg) scale(var(--scale,1))}
-  .ring .card-s:nth-child(3){transform:rotate(90deg) translate(0,calc(0px - var(--ring-r) - var(--lift,0px))) rotate(-90deg) scale(var(--scale,1))}
-  .ring .card-s:nth-child(4){transform:rotate(135deg) translate(0,calc(0px - var(--ring-r) - var(--lift,0px))) rotate(-135deg) scale(var(--scale,1))}
-  .ring .card-s:nth-child(5){transform:rotate(180deg) translate(0,calc(0px - var(--ring-r) - var(--lift,0px))) rotate(-180deg) scale(var(--scale,1))}
-  .ring .card-s:nth-child(6){transform:rotate(225deg) translate(0,calc(0px - var(--ring-r) - var(--lift,0px))) rotate(-225deg) scale(var(--scale,1))}
-  .ring .card-s:nth-child(7){transform:rotate(270deg) translate(0,calc(0px - var(--ring-r) - var(--lift,0px))) rotate(-270deg) scale(var(--scale,1))}
-  .ring .card-s:nth-child(8){transform:rotate(315deg) translate(0,calc(0px - var(--ring-r) - var(--lift,0px))) rotate(-315deg) scale(var(--scale,1))}
-  @media(max-width:960px){
-    .ring{position:static;width:auto;height:auto;margin:0}
-    .ring::before,.ring::after{display:none}
-    .ring .card-s{position:relative;transform:none;width:auto;margin:0 0 14px}
-  }
+  /* === услуги: бесконечная карусель вправо-влево === */
+  .carousel{position:relative;overflow:hidden;margin:0 auto;max-width:1080px;padding:8px 0 20px;touch-action:pan-y;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .carousel .track{display:flex;gap:16px;width:max-content;will-change:transform;cursor:grab;user-select:none;-webkit-user-select:none}
+  .carousel .track.dragging{cursor:grabbing}
+  .carousel .card-s{width:302px;flex:0 0 302px;min-height:236px}
+  .car-nav{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:8px;flex-wrap:wrap}
+  .car-btn{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:var(--txt);font-size:18px;cursor:pointer;transition:all .25s;flex-shrink:0}
+  .car-btn:hover{border-color:rgba(143,179,255,.75);color:#fff;box-shadow:0 0 26px rgba(143,179,255,.35);background:rgba(106,124,255,.2)}
+  .car-hint{font-size:12px;color:var(--muted);text-align:center;margin-top:4px}
   /* === заказ === */
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:32px}
   .step{border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:transform .25s,border-color .25s,box-shadow .25s}
@@ -311,8 +298,9 @@
 
 <section class="sec rv" id="services">
   <h2>Все услуги — в одном месте</h2>
-  <p class="sec-sub">8 услуг по орбите. Наведите на карточку — она приподнимется. Центр кольца открыт: сквозь него видно звёздное небо.</p>
-  <div class="ring">
+  <p class="sec-sub">8 услуг в бесконечной ленте: тяните вправо-влево или листайте стрелками ◀ ▶</p>
+  <div class="carousel" id="svcCar">
+  <div class="track" id="svcTrack">
     <div class="card-s"><div class="ic">🤖</div><h3>ИИ-ассистент на ваш ПК</h3><p>Личный помощник на компьютере: тексты, файлы, задачи, память между сессиями. Понятная инструкция на русском.</p><div class="price">500 ₽ <small>/ фикс</small></div><div class="ready">● готово</div></div>
     <div class="card-s"><div class="ic">🌐</div><h3>Сайт-визитка на Битрикс24</h3><p>Одностраничник на бесплатном тарифе: услуги, контакты, форма заявки. Ссылка вида vash-brend.b24.site.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
     <div class="card-s"><div class="ic">🧲</div><h3>Воронка продаж + CRM</h3><p>Этапы, сделки, заявки из Telegram и сайта сами попадают в воронку. Ни один клиент не теряется.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
@@ -321,6 +309,12 @@
     <div class="card-s"><div class="ic">📄</div><h3>Микроуслуги через нейросеть</h3><p>Тексты, объявления, презентации, таблицы Excel, описания товаров, ответы клиентам. Быстро и дёшево.</p><div class="price">от 300 ₽</div><div class="ready">● готово</div></div>
     <div class="card-s"><div class="ic">🔁</div><h3>Автоматизация и интеграции</h3><p>Связать сайт, Telegram, таблицы и Битрикс через вебхуки и REST API. Рутина — машинам, вы занимаетесь делом.</p><div class="price">от 1 500 ₽</div><div class="ready">● по запросу</div></div>
     <div class="card-s"><div class="ic">🖥️</div><h3>Помощь с компьютером</h3><p>Настройка, чистка от мусора, установка софта, перенос файлов. Понятно объясню, что и зачем делаю.</p><div class="price">от 500 ₽</div><div class="ready">● по запросу</div></div>
+  </div>
+  </div>
+  <div class="car-nav">
+    <button class="car-btn" id="carL" type="button">◀</button>
+    <span class="car-hint">Бесконечная лента: тяните вправо-влево или листайте стрелками</span>
+    <button class="car-btn" id="carR" type="button">▶</button>
   </div>
 </section>
 
@@ -426,6 +420,28 @@ function askAI(q){
   }
   chatBtn.addEventListener('click',function(){var q=chatIn.value.trim();if(q){askAI(q);chatIn.value='';}});
   chatIn.addEventListener('keydown',function(e){if(e.key==='Enter'){var q=chatIn.value.trim();if(q){askAI(q);chatIn.value='';}}});
+
+  // ===== карусель услуг: бесконечная прокрутка вправо-влево =====
+  var svcCar=document.getElementById('svcCar'),svcTrack=document.getElementById('svcTrack');
+  [].slice.call(svcTrack.children).forEach(function(c){svcTrack.appendChild(c.cloneNode(true));});
+  var half=svcTrack.scrollWidth/2,off=0,speed=.55,paused=false,drag=false,sx=0,so=0,mm=0;
+  (function frame(){
+    if(!drag&&!paused)off-=speed;
+    if(off<=-half)off+=half;
+    if(off>0)off-=half;
+    svcTrack.style.transform='translateX('+off+'px)';
+    requestAnimationFrame(frame);
+  })();
+  svcCar.addEventListener('pointerdown',function(e){drag=true;paused=true;sx=e.clientX;so=off;mm=0;svcTrack.classList.add('dragging');});
+  window.addEventListener('pointermove',function(e){if(!drag)return;mm+=Math.abs(e.clientX-sx);off=so+(e.clientX-sx);});
+  function stopDrag(){drag=false;svcTrack.classList.remove('dragging');paused=false;}
+  window.addEventListener('pointerup',stopDrag);
+  window.addEventListener('pointercancel',stopDrag);
+  svcCar.addEventListener('mouseenter',function(){paused=true;});
+  svcCar.addEventListener('mouseleave',function(){if(!drag)paused=false;});
+  document.getElementById('carL').addEventListener('click',function(){off+=430;});
+  document.getElementById('carR').addEventListener('click',function(){off-=430;});
+
 </script>
 </body>
 </html>
