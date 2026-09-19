@@ -552,12 +552,12 @@ function askAI(q){
       try{localStorage.setItem('fs-pal',p);}catch(e){}
     }
     function palFromHash(){var h=(location.hash||'').replace('#','').toLowerCase();return ['neon','arctic','terminal','rose','gold'].indexOf(h)>=0?h:null;}
-    try{setPal(palFromHash()||localStorage.getItem('fs-pal')||'neon');}catch(e){}
+    try{setPal(palFromHash()||localStorage.getItem('fs-pal')||'gold');}catch(e){}
     window.addEventListener('hashchange',function(){var p=palFromHash();if(p)setPal(p);});
     dots.forEach(function(d){d.addEventListener('click',function(){setPal(d.getAttribute('data-pal'));});});
   })();
 
 </script>
-<div class="pal"><span class="pl">Палитра</span><button class="dot on" data-pal="neon" type="button" style="background:#6a7cff" title="Неон"></button><button class="dot" data-pal="arctic" type="button" style="background:#4fd1ff" title="Арктика"></button><button class="dot" data-pal="terminal" type="button" style="background:#39ffb0" title="Терминал"></button><button class="dot" data-pal="rose" type="button" style="background:#d95dff" title="Роза"></button><button class="dot" data-pal="gold" type="button" style="background:#ffc259" title="Золото"></button></div>
+<div class="pal"><span class="pl">Палитра</span><button class="dot" data-pal="neon" type="button" style="background:#6a7cff" title="Неон"></button><button class="dot" data-pal="arctic" type="button" style="background:#4fd1ff" title="Арктика"></button><button class="dot" data-pal="terminal" type="button" style="background:#39ffb0" title="Терминал"></button><button class="dot" data-pal="rose" type="button" style="background:#d95dff" title="Роза"></button><button class="dot on" data-pal="gold" type="button" style="background:#ffc259" title="Золото"></button></div>
 </body>
 </html>
