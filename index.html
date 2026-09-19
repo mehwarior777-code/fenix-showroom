@@ -160,9 +160,9 @@
   .carousel .card-s{width:302px;flex:0 0 302px;min-height:236px}
   /* === технический HUD-каркас: сетка терминала + уголки-прицел (без рисунков) === */
   .card-s>*{position:relative;z-index:1}
-  .card-s::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:30px 30px;-webkit-mask-image:radial-gradient(130% 110% at 50% 40%,#000 15%,transparent 80%);mask-image:radial-gradient(130% 110% at 50% 40%,#000 15%,transparent 80%);opacity:.55;transition:opacity .4s ease}
+  
   .card-s::after{content:"";position:absolute;inset:16px;z-index:0;pointer-events:none;opacity:.6;transition:opacity .4s ease,inset .5s cubic-bezier(.2,.7,.3,1);filter:drop-shadow(0 0 6px var(--cb,#6a7cff));background:linear-gradient(var(--cb,#6a7cff),var(--cb,#6a7cff)) 0 0/26px 2.5px,linear-gradient(var(--cb,#6a7cff),var(--cb,#6a7cff)) 0 0/2.5px 26px,linear-gradient(var(--cb,#6a7cff),var(--cb,#6a7cff)) 100% 0/26px 2.5px,linear-gradient(var(--cb,#6a7cff),var(--cb,#6a7cff)) 100% 0/2.5px 26px,linear-gradient(var(--cb,#6a7cff),var(--cb,#6a7cff)) 0 100%/26px 2.5px,linear-gradient(var(--cb,#6a7cff),var(--cb,#6a7cff)) 0 100%/2.5px 26px,linear-gradient(var(--cb,#6a7cff),var(--cb,#6a7cff)) 100% 100%/26px 2.5px,linear-gradient(var(--cb,#6a7cff),var(--cb,#6a7cff)) 100% 100%/2.5px 26px;background-repeat:no-repeat}
-  .card-s:hover::before{opacity:.9}
+  
   .card-s:hover::after{inset:11px;opacity:1}
   .carousel .t-ai{--cb:#6a7cff;--glow:rgba(106,124,255,.18)}
   .carousel .t-ai:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 24px 64px rgba(106,124,255,.34),0 0 46px rgba(106,124,255,.26)}
@@ -358,7 +358,7 @@
   <p class="sec-sub">8 услуг: тяните ленту вправо-влево или листайте стрелками ◀ ▶</p>
   <div class="carousel" id="svcCar">
   <div class="track" id="svcTrack">
-    <div class="card-s t-ai"><h3>ИИ-ассистент на ваш ПК</h3><p>Личный помощник на компьютере: тексты, файлы, задачи, память между сессиями. Понятная инструкция на русском.</p><div class="price">1 000 ₽ <small>/ фикс</small></div><div class="ready">● готово</div></div>
+    <div class="card-s t-ai"><h3>ИИ-ассистент на ваш ПК</h3><p>Личный помощник на компьютере: тексты, файлы, задачи, память между сессиями. Этот сайт создан и настроен таким же ассистентом.</p><div class="price">1 000 ₽ <small>/ фикс</small></div><div class="ready">● готово</div></div>
     <div class="card-s t-site"><h3>Сайт-визитка на Битрикс24</h3><p>Одностраничник на бесплатном тарифе: услуги, контакты, форма заявки. Ссылка вида vash-brend.b24.site.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
     <div class="card-s t-funnel"><h3>Воронка продаж + CRM</h3><p>Этапы, сделки, заявки из Telegram и сайта сами попадают в воронку. Ни один клиент не теряется.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
     <div class="card-s t-bot"><h3>Телеграм-бот с ИИ</h3><p>Бот, который отвечает на русском: отвечает на вопросы, принимает заявки, работает 24/7.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
