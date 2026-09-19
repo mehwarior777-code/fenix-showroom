@@ -230,15 +230,13 @@
 
 
   /* === палитры (только цвета) === */
-  :root{--a1:106 124 255;--a2:55 214 192;--v:167 139 250}
-  body.pal-arctic{--bg:#060b12;--a1:79 209 255;--a2:226 232 240;--v:140 180 255;--c1:#4fd1ff;--c2:#e2e8f0;--violet:#8cb4ff;--green:#9fd8ff;--grad:linear-gradient(120deg,#4fd1ff,#e2e8f0)}
-  body.pal-terminal{--bg:#060b08;--a1:57 255 176;--a2:255 182 72;--v:57 255 176;--c1:#39ffb0;--c2:#ffb648;--violet:#39ffb0;--green:#39ffb0;--grad:linear-gradient(120deg,#39ffb0,#ffb648)}
-  body.pal-rose{--bg:#12081c;--a1:217 93 255;--a2:255 143 179;--v:255 143 179;--c1:#d95dff;--c2:#ff8fb3;--violet:#ff8fb3;--green:#d9a8ff;--grad:linear-gradient(120deg,#d95dff,#ff8fb3)}
-  body.pal-gold{--bg:#0f0b06;--a1:255 194 89;--a2:220 190 150;--v:255 216 160;--c1:#ffc259;--c2:#dcbe96;--violet:#ffd8a0;--green:#e0c08a;--grad:linear-gradient(120deg,#ffc259,#dcbe96)}
+  :root{--a1:106,124,255;--a2:55,214,192;--v:167,139,250;--cb:#6a7cff}
+  body.pal-arctic{--bg:#060b12;--a1:79,209,255;--a2:226,232,240;--v:140,180,255;--cb:#4fd1ff;--c1:#4fd1ff;--c2:#e2e8f0;--violet:#8cb4ff;--green:#9fd8ff;--grad:linear-gradient(120deg,#4fd1ff,#e2e8f0)}
+  body.pal-terminal{--bg:#060b08;--a1:57,255,176;--a2:255,182,72;--v:57,255,176;--cb:#39ffb0;--c1:#39ffb0;--c2:#ffb648;--violet:#39ffb0;--green:#39ffb0;--grad:linear-gradient(120deg,#39ffb0,#ffb648)}
+  body.pal-rose{--bg:#12081c;--a1:217,93,255;--a2:255,143,179;--v:255,143,179;--cb:#d95dff;--c1:#d95dff;--c2:#ff8fb3;--violet:#ff8fb3;--green:#d9a8ff;--grad:linear-gradient(120deg,#d95dff,#ff8fb3)}
+  body.pal-gold{--bg:#0f0b06;--a1:255,194,89;--a2:220,190,150;--v:255,216,160;--cb:#ffc259;--c1:#ffc259;--c2:#dcbe96;--violet:#ffd8a0;--green:#e0c08a;--grad:linear-gradient(120deg,#ffc259,#dcbe96)}
   /* единая сильная подсветка карточек (цвет схемы) */
-  .carousel .card-s,.factory .card-s{--cb:rgb(var(--a1))}
   .card-s:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 26px 80px rgba(var(--a1),.5),0 0 70px rgba(var(--a1),.4) !important}
-  .card-s::after{--cb:rgb(var(--a1))}
   /* переключатель палитр */
   .pal{position:fixed;right:14px;bottom:14px;z-index:90;display:flex;align-items:center;gap:8px;background:rgba(10,14,26,.85);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:7px 12px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
   .pal .pl{font-size:11px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-right:2px}
