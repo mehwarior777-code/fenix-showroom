@@ -620,9 +620,11 @@ function askAI(q){
       THEME=t;
       btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-theme')===t);});
       try{localStorage.setItem('fs-theme',t);}catch(e){}
-      if(audio.ctx)audio.drone(THEME);
+      if(audio&&audio.ctx)audio.drone(THEME);
     }
-    try{setTheme(localStorage.getItem('fs-theme')||'cosmic');}catch(e){}
+    function themeFromHash(){var h=(location.hash||'').replace('#','');return (h==='steam'||h==='mini'||h==='cosmic')?h:null;}
+    try{setTheme(themeFromHash()||localStorage.getItem('fs-theme')||'cosmic');}catch(e){}
+    window.addEventListener('hashchange',function(){var t=themeFromHash();if(t)setTheme(t);});
     var audio={ctx:null,master:null,muted:false,droneStarted:false,lastTick:0};
     audio.init=function(){
       if(audio.ctx)return;
