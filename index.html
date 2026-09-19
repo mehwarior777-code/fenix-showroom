@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Сайты, нейросети и контент-заводы под ключ: Битрикс24, Telegram-боты, ИИ-ассистент, автоматизация. Цена после брифа — за 1–3 дня. MAX · Telegram @mehwarior777">
+<meta name="theme-color" content="#0f0b06">
+<meta property="og:title" content="Шоурум: что вы получите на Битрикс24">
+<meta property="og:description" content="Сайты, нейросети и контент-заводы под ключ. Цена после брифа, готово за 1–3 дня. MAX · Telegram @mehwarior777">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23ffc259%27/%3E%3Ctext x=%2732%27 y=%2743%27 font-size=%2734%27 text-anchor=%27middle%27 fill=%27%230f0b06%27%3E%D0%A4%3C/text%3E%3C/svg%3E">
 <title>Шоурум — что вы получите на Битрикс24</title>
 <!--
   ШОУРУМ-ВИТРИНА · v3 (эффекты усилены)
@@ -233,19 +239,21 @@
 
 
   /* === палитры (только цвета) === */
-  :root{--a1:106,124,255;--a2:55,214,192;--v:167,139,250;--cb:#6a7cff}
-  body.pal-arctic{--bg:#060b12;--a1:79,209,255;--a2:226,232,240;--v:140,180,255;--cb:#4fd1ff;--c1:#4fd1ff;--c2:#e2e8f0;--violet:#8cb4ff;--green:#9fd8ff;--grad:linear-gradient(120deg,#4fd1ff,#e2e8f0)}
-  body.pal-terminal{--bg:#060b08;--a1:57,255,176;--a2:255,182,72;--v:57,255,176;--cb:#39ffb0;--c1:#39ffb0;--c2:#ffb648;--violet:#39ffb0;--green:#39ffb0;--grad:linear-gradient(120deg,#39ffb0,#ffb648)}
-  body.pal-rose{--bg:#12081c;--a1:217,93,255;--a2:255,143,179;--v:255,143,179;--cb:#d95dff;--c1:#d95dff;--c2:#ff8fb3;--violet:#ff8fb3;--green:#d9a8ff;--grad:linear-gradient(120deg,#d95dff,#ff8fb3)}
-  body.pal-gold{--bg:#0f0b06;--a1:255,194,89;--a2:220,190,150;--v:255,216,160;--cb:#ffc259;--c1:#ffc259;--c2:#dcbe96;--violet:#ffd8a0;--green:#e0c08a;--grad:linear-gradient(120deg,#ffc259,#dcbe96)}
+  :root{--bg:#0f0b06;--a1:255,194,89;--a2:220,190,150;--v:255,216,160;--cb:#ffc259;--c1:#ffc259;--c2:#dcbe96;--violet:#ffd8a0;--green:#e0c08a;--grad:linear-gradient(120deg,#ffc259,#dcbe96)}
   /* единая сильная подсветка карточек (цвет схемы) */
   .card-s:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 26px 80px rgba(var(--a1),.5),0 0 70px rgba(var(--a1),.4) !important}
-  /* переключатель палитр */
-  .pal{position:fixed;right:14px;bottom:14px;z-index:90;display:flex;align-items:center;gap:8px;background:rgba(10,14,26,.85);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:7px 12px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-  .pal .pl{font-size:11px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-right:2px}
-  .pal .dot{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;padding:0;transition:transform .2s,border-color .2s;flex-shrink:0}
-  .pal .dot:hover{transform:scale(1.15)}
-  .pal .dot.on{border-color:#fff;box-shadow:0 0 12px rgba(255,255,255,.45)}
+  /* форма заявки */
+  .zform{max-width:560px;margin:26px auto 0;padding:18px 22px;border:1px solid rgba(255,255,255,.14);border-radius:18px;background:rgba(15,11,6,.55);backdrop-filter:blur(8px)}
+  .zform h3{font-size:17px;color:#ffc259;margin:0 0 12px}
+  .z-i{width:100%;box-sizing:border-box;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);color:#eee;border-radius:12px;padding:11px 13px;font-size:15px;margin:0 0 9px;font-family:inherit;outline:none}
+  .z-i:focus{border-color:rgba(255,194,89,.7)}
+  select.z-i{appearance:none}
+  textarea.z-i{resize:vertical;min-height:58px}
+  .z-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  #zBtn{border:0;cursor:pointer;background:linear-gradient(120deg,#ffc259,#dcbe96);color:#0f0b06;font-weight:600;padding:12px 22px;border-radius:12px;font-size:15px}
+  .z-hint{font-size:13px;color:rgba(255,255,255,.75)}
+  .z-msg{display:none;white-space:pre-wrap;font-size:13px;color:rgba(255,255,255,.85);margin-top:8px;padding:10px;border:1px dashed rgba(255,255,255,.2);border-radius:10px}
+  .z-links{margin-top:8px}
 .pick-chips .chip{flex:1 0 160px;max-width:240px;min-width:150px;text-align:center}
 </style>
 </head>
@@ -419,6 +427,30 @@
     <div class="step"><div class="n">4</div><h3>Выполняю в срок</h3><p>1–3 дня, микроуслуги — в тот же день. Показываю промежуточный результат.</p></div>
     <div class="step"><div class="n">5</div><h3>Сдаю результат</h3><p>Готово + понятная инструкция. Правки по договорённости: что не умею — скажу сразу.</p></div>
   </div>
+
+  <div class="zform" id="zform">
+    <h3>Оставить заявку с сайта</h3>
+    <input class="z-i" id="zName" maxlength="60" placeholder="Имя">
+    <input class="z-i" id="zContact" maxlength="60" placeholder="Телефон или ник (MAX / Telegram)">
+    <select class="z-i" id="zService">
+      <option value="">— Что нужно? —</option>
+      <option>ИИ-ассистент на ПК</option><option>Сайт-визитка на Битрикс24</option>
+      <option>Воронка продаж + CRM</option><option>Телеграм-бот с ИИ</option>
+      <option>Настройка Битрикс24</option><option>Микроуслуги через нейросеть</option>
+      <option>Автоматизация и интеграции</option><option>Помощь с компьютером</option>
+      <option>Мини-завод / Сборочный цех</option><option>Завод под ключ</option><option>Другое</option>
+    </select>
+    <textarea class="z-i" id="zText" rows="2" maxlength="500" placeholder="Пара слов о задаче"></textarea>
+    <div class="z-row">
+      <button id="zBtn" type="button">Отправить заявку</button>
+      <span class="z-hint" id="zStatus"></span>
+    </div>
+    <div class="z-msg" id="zMsg"></div>
+    <div class="z-links" id="zLinks" style="display:none">
+      <a class="btn" href="https://max.ru/u/f9LHodD0cOIlMLMCM2Byn6ZfG86UNHa3RaQPAkQO8CbN9D8mpQPfaM56ksM" target="_blank" rel="noopener">Написать в MAX</a>
+      <a class="btn ghost" href="https://t.me/mehwarior777" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </div>
   <div class="center">
     <a class="btn" href="https://max.ru/u/f9LHodD0cOIlMLMCM2Byn6ZfG86UNHa3RaQPAkQO8CbN9D8mpQPfaM56ksM" target="_blank" rel="noopener">Заказать в MAX</a>
     <a class="btn ghost" href="https://t.me/mehwarior777" target="_blank" rel="noopener">Заказать в Telegram</a> <a class="btn ghost" href="https://max.ru/u/f9LHodD0cOIlMLMCM2Byn6ZfG86UNHa3RaQPAkQO8CbN9D8mpQPfaM56ksM" target="_blank" rel="noopener">Оплатить</a>
@@ -482,6 +514,13 @@
     if(s.indexOf('битрикс')>=0)return 'Настрою Битрикс24 под ключ: воронки, роботы, сайт + CRM — от 2 000 ₽, срок 2–3 дня. Пример — на этой странице, потяните ползунок.';
     if(s.indexOf('срок')>=0||s.indexOf('долго')>=0||s.indexOf('сколько ждать')>=0)return 'Стандартный срок — 1–3 дня после заказа. Срочно? Напишите в MAX или Telegram, подберём ускоренный вариант.';
     if(s.indexOf('телеграм')>=0||s.indexOf('связат')>=0||s.indexOf('контакт')>=0||s.indexOf('написать')>=0)return 'Пишите в MAX или Telegram: @mehwarior777 — отвечаю в течение часа. Там зафиксирую задачу, цену и срок.';
+    if(s.indexOf('ассистент')>=0||s.indexOf('помощник')>=0)return 'ИИ-ассистент на ваш ПК — 1 000 ₽ фикс: тексты, файлы, задачи, память между сессиями. Сам шоурум сделан таким ассистентом. Заказать — в MAX или Telegram.';
+    if(s.indexOf('завод')>=0||s.indexOf('мини-завод')>=0||s.indexOf('контент-завод')>=0)return 'Заводы — это связки ИИ для контента: мини-завод, сборочный цех, завод под ключ. Цена не фиксирована — называется после короткого брифа (5–10 минут). Завод под ключ: установленный ИИ обслуживает всё сам.';
+    if(s.indexOf('микро')>=0||s.indexOf('текст')>=0||s.indexOf('презентац')>=0||s.indexOf('excel')>=0||s.indexOf('таблиц')>=0||s.indexOf('объявлен')>=0)return 'Микроуслуги через нейросеть — от 300 ₽: тексты, объявления, презентации, таблицы Excel, описания товаров, ответы клиентам. В тот же день.';
+    if(s.indexOf('воронк')>=0||s.indexOf('crm')>=0||s.indexOf('сделки')>=0)return 'Воронка продаж + CRM на Битрикс24 — от 2 000 ₽: заявки из MAX, Telegram и с сайта сами попадают в воронку, ни один клиент не теряется.';
+    if(s.indexOf('компьютер')>=0||s.indexOf('пк')>=0||s.indexOf('ноутбук')>=0)return 'Помощь с компьютером — от 500 ₽: настройка, чистка, установка софта, перенос файлов. Сделаю и объясню.';
+    if(s.indexOf('гарант')>=0||s.indexOf('kwork')>=0||s.indexOf('безопасн')>=0)return 'Оплата — картой или СБП по ссылке. Если нужна гарантия сделки — дополнительно оформляем через Kwork (сервис безопасных сделок).';
+    if(s.indexOf('кто')>=0||s.indexOf('феникс')>=0||s.indexOf('ты кто')>=0)return 'Я — ИИ-консультант Феникса: сайты, нейросети и контент-заводы под ключ. Создаю ассистентов, ботов и Битрикс24, а этот сайт — живой пример работы.';
     return 'Хороший вопрос! Точнее всего отвечу в личке: в MAX или Telegram @mehwarior777. А пока посмотрите блок услуг выше и ползунок «Фронт ↔ Админка» — там всё наглядно.';
   }
 function askAI(q){
@@ -489,7 +528,7 @@ function askAI(q){
     var t=addBub('печатает…','typing');
     chatBtn.disabled=true; chatIn.disabled=true;
     var ctl=new AbortController(), tm=setTimeout(function(){ctl.abort();},15000);
-    var sys='Отвечай на русском, кратко (до 3 предложений), как консультант сайта услуг ИИ-ассистента и настройки Битрикс24. ';
+    var sys='Отвечай на русском, кратко (до 4 предложений), как консультант Феникса — самозанятого специалиста по ИИ и Битрикс24. ФАКТЫ (только они): имя — Феникс, пишут в MAX или Telegram @mehwarior777, ответ в течение часа. Услуги и цены: ИИ-ассистент на ПК 1000 руб фикс; сайт-визитка на Битрикс24 от 1500; воронка продаж + CRM от 2000; Telegram-бот с ИИ от 1500; настройка Битрикс24 под ключ от 2000; микроуслуги через нейросеть (тексты, презентации, Excel, ответы клиентам) от 300; автоматизация и интеграции от 3500; помощь с компьютером от 500. Заводы (Мини-завод, Сборочный цех, Завод под ключ) — цена не фиксирована, называется после брифа 5–10 минут; у завода под ключ установленный ИИ обслуживает всё сам. Срок: 1–3 дня, микроуслуги — в тот же день. Оплата: карта или СБП, платёжная ссылка приходит в MAX/Telegram; гарантия — сделка через Kwork. 5 шагов: сообщение в MAX/Telegram → уточнение задачи и цены (без скрытых доплат) → оплата → выполнение с промежуточным результатом → сдача. Если спросили то, чего нет в фактах, честно скажи, что уточнишь в личке, и направь в MAX или Telegram. ';
     fetch('https://text.pollinations.ai/'+encodeURIComponent(sys+q),{signal:ctl.signal})
       .then(function(r){return r.text();})
       .then(function(txt){t.textContent=(txt.trim()||canned(q));})
@@ -542,23 +581,41 @@ function askAI(q){
 
 
 
-  // ===== переключатель палитр (только цвета) =====
-  (function(){
-    var body=document.body, dots=document.querySelectorAll('.pal .dot');
-    var cls=['pal-arctic','pal-terminal','pal-rose','pal-gold'];
-    function setPal(p){
-      cls.forEach(function(c){body.classList.remove(c);});
-      if(p!=='neon')body.classList.add('pal-'+p);
-      dots.forEach(function(d){d.classList.toggle('on',d.getAttribute('data-pal')===p);});
-      try{localStorage.setItem('fs-pal',p);}catch(e){}
-    }
-    function palFromHash(){var h=(location.hash||'').replace('#','').toLowerCase();return ['neon','arctic','terminal','rose','gold'].indexOf(h)>=0?h:null;}
-    try{setPal(palFromHash()||localStorage.getItem('fs-pal')||'gold');}catch(e){}
-    window.addEventListener('hashchange',function(){var p=palFromHash();if(p)setPal(p);});
-    dots.forEach(function(d){d.addEventListener('click',function(){setPal(d.getAttribute('data-pal'));});});
-  })();
+    
+
+  // ===== заявка: в Битрикс (если задан вебхук) или с готовым текстом в MAX/Telegram =====
+  var B24_WEBHOOK='';
+  var MAX_URL='https://max.ru/u/f9LHodD0cOIlMLMCM2Byn6ZfG86UNHa3RaQPAkQO8CbN9D8mpQPfaM56ksM';
+  var TG_URL='https://t.me/mehwarior777';
+  var zf=document.getElementById('zform');
+  if(zf){
+    var zBtn=document.getElementById('zBtn'), zStatus=document.getElementById('zStatus'),
+        zMsg=document.getElementById('zMsg'), zLinks=document.getElementById('zLinks');
+    function zGet(id){return (document.getElementById(id).value||'').trim();}
+    zBtn.addEventListener('click',function(){
+      var name=zGet('zName'), contact=zGet('zContact'), svc=zGet('zService'), txt=zGet('zText');
+      if(!name||!contact){zStatus.textContent='Укажите имя и контакт — так я смогу ответить.';return;}
+      var msg='Заявка с сайта:\nИмя: '+name+'\nКонтакт: '+contact+'\nУслуга: '+(svc||'—')+'\nЗадача: '+(txt||'—');
+      zMsg.style.display='none'; zLinks.style.display='none';
+      if(B24_WEBHOOK){
+        zStatus.textContent='Отправляю…';
+        fetch(B24_WEBHOOK+'crm.lead.add.json',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({fields:{TITLE:'Заявка с сайта: '+(svc||'Без услуги'),NAME:name,
+          PHONE:[{VALUE:contact,VALUE_TYPE:'WORK'}],COMMENTS:msg,SOURCE_ID:'WEB'}})})
+          .then(function(r){return r.json();})
+          .then(function(j){
+            if(j&&j.result){zStatus.textContent='Заявка принята! Отвечу в течение часа.';}
+            else{zStatus.textContent='Заявка принята, но Битрикс не ответил. Дублирую в чат:';zMsg.textContent=msg;zMsg.style.display='block';zLinks.style.display='block';}
+          })
+          .catch(function(){zStatus.textContent='Основной канал недоступен — досылаю по тексту:';zMsg.textContent=msg;zMsg.style.display='block';zLinks.style.display='block';});
+      }else{
+        zStatus.textContent='Отправьте эту заявку в MAX или Telegram — отвечу в течение часа:';
+        zMsg.textContent=msg; zMsg.style.display='block'; zLinks.style.display='block';
+      }
+    });
+  }
 
 </script>
-<div class="pal"><span class="pl">Палитра</span><button class="dot" data-pal="neon" type="button" style="background:#6a7cff" title="Неон"></button><button class="dot" data-pal="arctic" type="button" style="background:#4fd1ff" title="Арктика"></button><button class="dot" data-pal="terminal" type="button" style="background:#39ffb0" title="Терминал"></button><button class="dot" data-pal="rose" type="button" style="background:#d95dff" title="Роза"></button><button class="dot on" data-pal="gold" type="button" style="background:#ffc259" title="Золото"></button></div>
+
 </body>
 </html>
