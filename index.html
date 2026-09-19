@@ -178,6 +178,7 @@
   /* === контент-завод === */
   .factory{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:0 0 14px}
   .factory .card-s h3{font-size:17px}
+  .factory-note{font-size:14px;color:var(--muted);max-width:760px;margin:0 auto 10px;text-align:center}
   #factory .steps{margin-top:10px}
   /* === заказ === */
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:32px}
@@ -361,11 +362,11 @@
   <div class="track" id="svcTrack">
     <div class="card-s t-ai"><h3>ИИ-ассистент на ваш ПК</h3><p>Личный помощник на компьютере: тексты, файлы, задачи, память между сессиями. Этот сайт создан и настроен таким же ассистентом.</p><div class="price">1 000 ₽ <small>/ фикс</small></div><div class="ready">● готово</div></div>
     <div class="card-s t-site"><h3>Сайт-визитка на Битрикс24</h3><p>Одностраничник на бесплатном тарифе: услуги, контакты, форма заявки. Ссылка вида vash-brend.b24.site.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
-    <div class="card-s t-funnel"><h3>Воронка продаж + CRM</h3><p>Этапы, сделки, заявки из Telegram и сайта сами попадают в воронку. Ни один клиент не теряется.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
+    <div class="card-s t-funnel"><h3>Воронка продаж + CRM</h3><p>Базовая комплектация: этапы, сделки, заявки из Telegram и сайта сами попадают в воронку. Ни один клиент не теряется.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
     <div class="card-s t-bot"><h3>Телеграм-бот с ИИ</h3><p>Бот, который отвечает на русском: отвечает на вопросы, принимает заявки, работает 24/7.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
-    <div class="card-s t-b24"><h3>Настройка Битрикс24 под ключ</h3><p>Роботы, автоматизация, права доступа, интеграции. Вы получите готовый рабочий портал — и я покажу, как им пользоваться.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
+    <div class="card-s t-b24"><h3>Настройка Битрикс24 под ключ</h3><p>Базовая комплектация: роботы, автоматизация, права доступа, интеграции. Вы получите готовый рабочий портал — и я покажу, как им пользоваться.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
     <div class="card-s t-micro"><h3>Микроуслуги через нейросеть</h3><p>Тексты, объявления, презентации, таблицы Excel, описания товаров, ответы клиентам. Быстро и дёшево.</p><div class="price">от 300 ₽</div><div class="ready">● готово</div></div>
-    <div class="card-s t-auto"><h3>Автоматизация и интеграции</h3><p>Связать сайт, Telegram, таблицы и Битрикс через вебхуки и REST API. Рутина — машинам, вы занимаетесь делом.</p><div class="price">от 1 500 ₽</div><div class="ready">● по запросу</div></div>
+    <div class="card-s t-auto"><h3>Автоматизация и интеграции</h3><p>Связать сайт, Telegram, таблицы и Битрикс через вебхуки и REST API. Рутина — машинам, вы занимаетесь делом.</p><div class="price">от 3 500 ₽</div><div class="ready">● по запросу</div></div>
     <div class="card-s t-pc"><h3>Помощь с компьютером</h3><p>Настройка, чистка от мусора, установка софта, перенос файлов. Понятно объясню, что и зачем делаю.</p><div class="price">от 500 ₽</div><div class="ready">● по запросу</div></div>
   </div>
   </div>
@@ -395,10 +396,11 @@
   <h2 style="font-size:clamp(20px,2.6vw,28px)">Собираю контент-заводы: ассистент + паспорт бренда + шаблоны + приём заявок</h2>
   
   <div class="factory">
-    <div class="card-s"><h3>Мини-завод</h3><p>ИИ-ассистент на ваш ПК + шаблоны 3 форматов + инструкция на русском.</p><div class="price">1 000 ₽</div><div class="ready">● старт</div></div>
-    <div class="card-s"><h3>Сборочный цех</h3><p>+ паспорт бренда (стиль, тон, запреты) + приём заявок через чат/бота.</p><div class="price">от 2 500 ₽</div><div class="ready">● средний</div></div>
-    <div class="card-s"><h3>Завод под ключ</h3><p>+ воронка заявок в Битрикс24, ОТК-пробная партия. Установленный ИИ обслуживает завод сам — обучение и поддержка не нужны.</p><div class="price">от 7 000 ₽</div><div class="ready">● полный</div></div>
+    <div class="card-s"><h3>Мини-завод</h3><p>ИИ-ассистент на ваш ПК + шаблоны 3 форматов + инструкция на русском. Готовый цех контента за 1–2 дня.</p><div class="price">цена под задачу</div><div class="ready">● старт</div></div>
+    <div class="card-s"><h3>Сборочный цех</h3><p>+ паспорт бренда (стиль, тон, запреты) + приём заявок через чат/бота. Контент строго в вашем стиле — без переделок.</p><div class="price">цена по объёму</div><div class="ready">● средний</div></div>
+    <div class="card-s"><h3>Завод под ключ</h3><p>+ воронка заявок в Битрикс24, ОТК-пробная партия. Установленный ИИ обслуживает завод сам — обучение и поддержка не нужны.</p><div class="price">цена после брифа</div><div class="ready">● полный</div></div>
   </div>
+  <p class="factory-note">У завода нет единой цены — есть комплектация. Напишите, что нужно: назову точную стоимость и срок после короткого брифа (5–10 минут).</p>
   <div class="center">
     <a class="btn" href="https://t.me/mehwarior777" target="_blank" rel="noopener">Обсудить ваш завод</a>
   </div>
