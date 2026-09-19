@@ -243,90 +243,17 @@
     .chat-send{padding:13px 22px}
   }
 
-  /* ================= ТЕМЫ ================= */
-  /* --- Космос: текущая, по умолчанию --- (переключение через body.class) */
-  /* --- Стим-панк: аппаратура «Вулканоидов» (латунь/медь/заклёпки/приборы) --- */
-  @font-face{font-family:'Philosopher';font-style:normal;font-weight:700;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/philosopher@latest/cyrillic-700-normal.woff2) format('woff2')}
-  @font-face{font-family:'Philosopher';font-style:normal;font-weight:700;font-display:swap;src:url(https://cdn.jsdelivr.net/fontsource/fonts/philosopher@latest/latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-  @keyframes gearspin{to{transform:rotate(360deg)}}
-  @keyframes gearspin2{to{transform:rotate(-360deg)}}
-  @keyframes needle{from{transform:translateX(-50%) rotate(-30deg)}to{transform:translateX(-50%) rotate(42deg)}}
-  .steamgear,.steamdial{display:none}
-  body.theme-steam{background:radial-gradient(85% 60% at 50% 0%,rgba(217,165,74,.07),transparent 60%),radial-gradient(90% 70% at 50% 100%,rgba(176,106,50,.13),transparent 65%),#140d07;--bg:#140d07;--card:rgba(66,44,20,.55);--line:rgba(214,166,90,.22);--txt:#f3e6c8;--muted:#b29a6e;--c1:#d9a54a;--c2:#c96f3d;--violet:#6fb7a8;--grad:linear-gradient(120deg,#c9963f,#b46a32);--green:#b9a860}
-  body.theme-steam .stars,body.theme-steam .stars2{background-image:none}
-  body.theme-steam .gridfx{display:none}
-  body.theme-steam .b1{background:radial-gradient(circle,rgba(217,165,74,.4),transparent 65%)}
-  body.theme-steam .b2{background:radial-gradient(circle,rgba(176,106,50,.34),transparent 65%)}
-  body.theme-steam .b3{background:radial-gradient(circle,rgba(111,183,168,.22),transparent 65%)}
-  body.theme-steam .vignette{background:radial-gradient(ellipse at 50% 42%,transparent 40%,rgba(20,8,2,.72) 100%)}
-  body.theme-steam .top{background:rgba(20,13,7,.78);border-bottom-color:rgba(214,166,90,.25)}
-  body.theme-steam h1,body.theme-steam h2,body.theme-steam .logo,body.theme-steam .badge,body.theme-steam .btn{font-family:'Philosopher','Manrope','Segoe UI',serif;letter-spacing:.2px}
-  body.theme-steam .logo b{filter:drop-shadow(0 0 16px rgba(217,165,74,.6))}
-  body.theme-steam nav a:hover{color:#f3e6c8;text-shadow:0 0 14px rgba(217,165,74,.9)}
-  body.theme-steam .hero h1 span,body.theme-steam .sec h2{filter:drop-shadow(0 0 22px rgba(217,165,74,.5))}
-  body.theme-steam .hero h1,body.theme-steam .sec h2{font-weight:700}
-  body.theme-steam .badge{border-color:rgba(217,165,74,.55);color:#f0d9a8;background:rgba(217,165,74,.13);box-shadow:0 0 32px rgba(217,165,74,.45),inset 0 0 18px rgba(217,165,74,.1)}
-  body.theme-steam .orbit{border:2px dashed rgba(217,165,74,.5);box-shadow:0 0 60px rgba(217,165,74,.14),inset 0 0 60px rgba(201,111,61,.12);animation:spin 60s linear infinite}
-  body.theme-steam .orbit::after{background:var(--c2);box-shadow:0 0 24px 4px rgba(201,111,61,.9)}
-  body.theme-steam .btn{background:linear-gradient(150deg,#dda952,#a86b2f 55%,#dbaa52);color:#2a1704;border:1px solid rgba(120,70,20,.6);box-shadow:0 12px 40px rgba(150,90,30,.5),inset 0 1px 0 rgba(255,235,190,.65),inset 0 -2px 4px rgba(50,25,5,.6)}
-  body.theme-steam .btn::after{display:none}
-  body.theme-steam .btn.ghost{background:rgba(217,165,74,.08);color:#f0d9a8;border:1px solid rgba(217,165,74,.4);box-shadow:none}
-  body.theme-steam .btn.ghost:hover{border-color:rgba(240,200,120,.75);box-shadow:0 10px 40px rgba(150,90,30,.35)}
-  body.theme-steam .card-s{background:linear-gradient(180deg,rgba(74,49,21,.72),rgba(30,19,8,.9)),repeating-linear-gradient(0deg,rgba(255,220,160,.05) 0 1px,transparent 1px 4px);border-color:rgba(217,165,74,.34);box-shadow:inset 0 1px 0 rgba(255,222,160,.16),inset 0 -2px 6px rgba(0,0,0,.55),0 12px 34px rgba(0,0,0,.5)}
-  body.theme-steam .card-s::after{inset:8px;opacity:.75;background:radial-gradient(circle at 50% 50%,rgba(244,214,150,.95) 0 2px,rgba(110,70,25,.85) 3px 4.5px,transparent 5px) 0 0/26px 26px no-repeat,radial-gradient(circle at 50% 50%,rgba(244,214,150,.95) 0 2px,rgba(110,70,25,.85) 3px 4.5px,transparent 5px) 100% 0/26px 26px no-repeat,radial-gradient(circle at 50% 50%,rgba(244,214,150,.95) 0 2px,rgba(110,70,25,.85) 3px 4.5px,transparent 5px) 0 100%/26px 26px no-repeat,radial-gradient(circle at 50% 50%,rgba(244,214,150,.95) 0 2px,rgba(110,70,25,.85) 3px 4.5px,transparent 5px) 100% 100%/26px 26px no-repeat;filter:drop-shadow(0 1px 1px rgba(0,0,0,.8))}
-  body.theme-steam .card-s:hover{border-color:rgba(240,200,120,.7);box-shadow:inset 0 1px 0 rgba(255,222,160,.22),0 24px 64px rgba(150,90,30,.4),0 0 42px rgba(217,165,74,.22)}
-  body.theme-steam .price{color:#f6e7c6}
-  body.theme-steam .step{background:linear-gradient(180deg,rgba(74,49,21,.6),rgba(30,19,8,.8));border-color:rgba(217,165,74,.3)}
-  body.theme-steam .step .n{background:linear-gradient(150deg,#dda952,#a86b2f);color:#2a1704;box-shadow:inset 0 1px 0 rgba(255,235,190,.6),0 10px 26px rgba(150,90,30,.5)}
-  body.theme-steam .chip{border-color:rgba(217,165,74,.34);background:rgba(217,165,74,.07)}
-  body.theme-steam .chip:hover{color:#f3e6c8;box-shadow:0 0 24px rgba(217,165,74,.35)}
-  body.theme-steam .chip.on{background:rgba(217,165,74,.24);border-color:rgba(240,200,120,.7);color:#2a1704;box-shadow:0 0 30px rgba(217,165,74,.4),inset 0 0 14px rgba(217,165,74,.25)}
-  body.theme-steam .car-btn{border-color:rgba(217,165,74,.4);background:rgba(217,165,74,.08);color:#f0d9a8}
-  body.theme-steam .car-btn:hover{border-color:rgba(240,200,120,.8);box-shadow:0 0 26px rgba(217,165,74,.4);background:rgba(217,165,74,.2)}
-  body.theme-steam .cmp{border-color:rgba(217,165,74,.3);box-shadow:0 34px 90px rgba(0,0,0,.65),0 0 42px rgba(217,165,74,.2)}
-  body.theme-steam .steamgear{display:block;position:fixed;pointer-events:none;z-index:0;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:.16}
-  body.theme-steam .steamgear.g1{width:130px;height:130px;top:4%;right:3%;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23c9973f%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2230%22%20stroke-width%3D%229%22%20stroke-dasharray%3D%2216%2013%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2217%22%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%227%22%20fill%3D%22%23e8c27a%22%20fill-opacity%3D%22.8%22%2F%3E%3C%2Fsvg%3E");animation:gearspin 48s linear infinite}
-  body.theme-steam .steamgear.g2{width:96px;height:96px;bottom:4%;left:3%;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23c9973f%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2230%22%20stroke-width%3D%229%22%20stroke-dasharray%3D%2216%2013%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2217%22%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%227%22%20fill%3D%22%23e8c27a%22%20fill-opacity%3D%22.8%22%2F%3E%3C%2Fsvg%3E");animation:gearspin2 74s linear infinite}
-  body.theme-steam .steamdial{display:block;position:fixed;left:4%;bottom:18%;width:118px;height:118px;border-radius:50%;z-index:1;pointer-events:none;background:radial-gradient(circle at 50% 38%,#2a1d0c,#120b05 72%);border:3px solid #8a6428;box-shadow:inset 0 0 20px #000,0 0 30px rgba(217,165,74,.22)}
-  body.theme-steam .steamdial::before{content:'';position:absolute;left:50%;bottom:50%;width:3px;height:40%;border-radius:2px;background:linear-gradient(#eec97e,#8a5a20);transform-origin:50% 100%;transform:translateX(-50%);animation:needle 11s ease-in-out infinite alternate}
-  body.theme-steam .steamdial::after{content:'';position:absolute;left:50%;top:50%;width:10px;height:10px;border-radius:50%;background:#eec97e;transform:translate(-50%,-50%);box-shadow:0 0 8px rgba(238,201,126,.8)}
-  /* --- Мини: премиум-минимализм, типографика и свет --- */
-  body.theme-mini{--bg:#07090f;--card:rgba(255,255,255,.04);--line:rgba(255,255,255,.09);--muted:#9aa2b8;--c1:#b7c0ff;--c2:#b7c0ff;--violet:#b7c0ff;--grad:linear-gradient(120deg,#dbe0ff,#b7c0ff);--green:#9fd8b8}
-  body.theme-mini .blob,body.theme-mini .gridfx,body.theme-mini .stars,body.theme-mini .stars2,body.theme-mini .vignette,body.theme-mini .orbit,body.theme-mini .steamgear,body.theme-mini .steamdial{display:none}
-  body.theme-mini .bgfx{background:radial-gradient(90% 60% at 50% 0%,rgba(255,255,255,.045),transparent 60%)}
-  body.theme-mini .top{background:rgba(7,9,15,.85);backdrop-filter:blur(10px)}
-  body.theme-mini .hero h1 span,body.theme-mini .sec h2,body.theme-mini .logo b{filter:drop-shadow(0 0 12px rgba(183,192,255,.35))}
-  body.theme-mini .card-s{background:rgba(255,255,255,.03);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;border-color:rgba(255,255,255,.1);--cb:#dfe4ff}
-  body.theme-mini .card-s::after{--cb:#dfe4ff;opacity:.35}
-  body.theme-mini .card-s:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.32);box-shadow:0 20px 50px rgba(0,0,0,.5)}
-  body.theme-mini .card-s:hover::after{opacity:.65}
-  body.theme-mini .btn{background:#eef1ff;color:#0b0e18;background-size:auto;box-shadow:none}
-  body.theme-mini .btn::after{display:none}
-  body.theme-mini .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.22);color:var(--txt);box-shadow:none}
-  body.theme-mini .btn.ghost:hover{border-color:rgba(255,255,255,.5)}
-  body.theme-mini .badge{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.2);color:var(--muted);box-shadow:none}
-  body.theme-mini .cmp{border-color:rgba(255,255,255,.12);box-shadow:0 30px 80px rgba(0,0,0,.55)}
-  body.theme-mini .step{box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-  body.theme-mini .step .n{background:#cfd6ff;color:#0b0e18;box-shadow:none}
-  body.theme-mini .pick-out{box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
-  body.theme-mini .car-btn{background:rgba(255,255,255,.05)}
-  body.theme-mini .chip{background:transparent}
-  /* --- переключатель тем --- */
-  .theme-sw{position:fixed;left:14px;bottom:14px;z-index:90;display:flex;align-items:center;gap:4px;background:rgba(10,14,26,.82);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px 6px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-  .theme-sw button{border:0;background:transparent;color:var(--muted);font-size:12px;padding:7px 12px;border-radius:999px;cursor:pointer;font-family:inherit;transition:all .25s;line-height:1}
-  .theme-sw button:hover{color:#fff}
-  .theme-sw button.on{background:var(--grad);color:#fff;box-shadow:0 0 18px rgba(106,124,255,.5)}
-  .theme-sw .mute{font-size:14px;padding:6px 8px}
-  body.theme-steam .theme-sw{background:rgba(20,13,7,.9);border-color:rgba(217,165,74,.3)}
-  body.theme-steam .theme-sw button.on{background:linear-gradient(150deg,#dda952,#a86b2f);color:#2a1704;box-shadow:0 0 16px rgba(217,165,74,.5)}
-  body.theme-mini .theme-sw{background:rgba(7,9,15,.85)}
-  body.theme-mini .theme-sw button.on{color:#0b0e18}
 
+  /* === волна цветов: секции поочерёдно (синий/бирюза), конфликты исключены === */
+  #showcase,#services,#order{--w1:#6a7cff;--w2:#37d6c0;--grad:linear-gradient(120deg,#6a7cff 0%,#37d6c0 100%)}
+  #ai,#factory{--w1:#37d6c0;--w2:#6a7cff;--grad:linear-gradient(120deg,#37d6c0 0%,#6a7cff 100%)}
+  .sec h2{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .card-s{background:linear-gradient(180deg,rgba(58,74,128,.34),rgba(22,30,58,.62))}
 </style>
 </head>
 <body>
 
-<div class="bgfx"><div class="stars"></div><div class="stars2"></div><div class="vignette"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="gridfx"></div><div class="steamgear g1"></div><div class="steamgear g2"></div><div class="steamdial"></div></div>
+<div class="bgfx"><div class="stars"></div><div class="stars2"></div><div class="vignette"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="gridfx"></div></div>
 
 <header class="top">
   <div class="top-in">
@@ -610,92 +537,8 @@ function askAI(q){
   document.getElementById('carR').addEventListener('click',function(){off-=430;});
 
 
-  // ===== переключатель тем + звук (WebAudio, без файлов) =====
-  (function(){
-    var body=document.body, btns=document.querySelectorAll('.theme-sw [data-theme]'), sndBtn=document.getElementById('sndBtn');
-    var THEME='cosmic';
-    function setTheme(t){
-      body.classList.remove('theme-steam','theme-mini');
-      if(t!=='cosmic')body.classList.add('theme-'+t);
-      THEME=t;
-      btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-theme')===t);});
-      try{localStorage.setItem('fs-theme',t);}catch(e){}
-      if(audio&&audio.ctx)audio.drone(THEME);
-    }
-    function themeFromHash(){var h=(location.hash||'').replace('#','');return (h==='steam'||h==='mini'||h==='cosmic')?h:null;}
-    try{setTheme(themeFromHash()||localStorage.getItem('fs-theme')||'cosmic');}catch(e){}
-    window.addEventListener('hashchange',function(){var t=themeFromHash();if(t)setTheme(t);});
-    var audio={ctx:null,master:null,muted:false,droneStarted:false,lastTick:0};
-    audio.init=function(){
-      if(audio.ctx)return;
-      var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;
-      audio.ctx=new AC();
-      audio.master=audio.ctx.createGain();
-      audio.master.gain.value=audio.muted?0:.45;
-      audio.master.connect(audio.ctx.destination);
-      if(!audio.droneStarted){audio.droneStarted=true;audio.drone(THEME);}
-    };
-    audio.drone=function(theme){
-      if(!audio.ctx)return;
-      if(audio._n){audio._n.forEach(function(x){try{x.stop();}catch(e){}});audio._n.forEach(function(x){try{x.disconnect();}catch(e){}});audio._n=[];}
-      var ctx=audio.ctx,out=audio.master,n=[];
-      function osc(type,f,g){
-        var o=ctx.createOscillator(),g2=ctx.createGain();
-        o.type=type;o.frequency.value=f;g2.gain.value=g;
-        o.connect(g2);g2.connect(out);o.start();return [o,g2];
-      }
-      function noise(g,type,freq){
-        var len=ctx.sampleRate*2,b=ctx.createBuffer(1,len,ctx.sampleRate),d=b.getChannelData(0);
-        for(var i=0;i<len;i++)d[i]=Math.random()*2-1;
-        var s=ctx.createBufferSource();s.buffer=b;s.loop=true;
-        var fl=ctx.createBiquadFilter();fl.type=type;fl.frequency.value=freq;
-        var g2=ctx.createGain();g2.gain.value=g;
-        s.connect(fl);fl.connect(g2);g2.connect(out);s.start();
-        return [s,fl,g2];
-      }
-      
-      if(theme==='steam'){Array.prototype.push.apply(n,osc('sawtooth',55,.035));Array.prototype.push.apply(n,osc('sawtooth',82.4,.025));Array.prototype.push.apply(n,noise(.01,'bandpass',950));}
-      else if(theme==='cosmic'){Array.prototype.push.apply(n,osc('sine',48,.045));Array.prototype.push.apply(n,osc('sine',73.4,.028));Array.prototype.push.apply(n,noise(.008,'lowpass',420));}
-      else{Array.prototype.push.apply(n,noise(.004,'highpass',2400));}
-      audio._n=n;
-    };
-    audio.click=function(theme){
-      if(!audio.ctx||!audio.master)return;
-      var ctx=audio.ctx,t=ctx.currentTime;
-      function blip(f,d,g){
-        var o=ctx.createOscillator(),g2=ctx.createGain();
-        o.frequency.value=f;g2.gain.setValueAtTime(g,t);
-        g2.gain.exponentialRampToValueAtTime(.0001,t+d);
-        o.connect(g2);g2.connect(audio.master);o.start(t);o.stop(t+d+.05);
-      }
-      if(theme==='steam'){blip(150,.07,.11);blip(92,.1,.07);}
-      else if(theme==='cosmic'){blip(880,.05,.06);blip(1318,.05,.04);}
-      else{blip(1900,.03,.04);}
-    };
-    audio.hover=function(){
-      if(Date.now()-audio.lastTick<110)return;
-      audio.lastTick=Date.now();
-      audio.click(THEME);
-    };
-    btns.forEach(function(b){b.addEventListener('click',function(){audio.init();setTheme(b.getAttribute('data-theme'));audio.click(THEME);});});
-    sndBtn.addEventListener('click',function(){
-      audio.init();
-      audio.muted=!audio.muted;
-      if(audio.master)audio.master.gain.value=audio.muted?0:.45;
-      sndBtn.textContent=audio.muted?'\uD83D\uDD07':'\uD83D\uDD0A';
-      try{localStorage.setItem('fs-mute',audio.muted?1:0);}catch(e){}
-    });
-    try{if(localStorage.getItem('fs-mute')==='1'){audio.muted=true;sndBtn.textContent='\uD83D\uDD07';}}catch(e){}
-    document.addEventListener('mouseover',function(e){
-      var el=e.target;while(el&&!(el.classList&&el.classList.contains('card-s')))el=el.parentNode;
-      if(el)audio.hover();
-    });
-    document.addEventListener('pointerdown',function(){audio.init();});
-    window.addEventListener('blur',function(){if(audio.ctx&&audio.ctx.suspend)audio.ctx.suspend();});
-    window.addEventListener('focus',function(){if(audio.ctx&&audio.ctx.resume)audio.ctx.resume();});
-  })();
+
 
 </script>
-<div class="theme-sw"><button data-theme="cosmic" class="on">Космос</button><button data-theme="steam">Стим</button><button data-theme="mini">Мини</button><button class="mute" id="sndBtn" type="button">🔊</button></div>
 </body>
 </html>
