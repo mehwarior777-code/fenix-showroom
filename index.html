@@ -243,6 +243,7 @@
   .pal .dot{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;padding:0;transition:transform .2s,border-color .2s;flex-shrink:0}
   .pal .dot:hover{transform:scale(1.15)}
   .pal .dot.on{border-color:#fff;box-shadow:0 0 12px rgba(255,255,255,.45)}
+.pick-chips .chip{flex:1 0 160px;max-width:240px;min-width:150px;text-align:center}
 </style>
 </head>
 <body>
@@ -337,7 +338,7 @@
 
 <section class="sec rv" id="pick">
   <h2>Подберу нейросеть под вашу задачу</h2>
-  <p class="sec-sub">Бесплатно: выберите, что нужно сделать — и я подскажу инструмент и возьму работу на себя.</p>
+  
   <div class="pick">
     <div class="pick-chips">
       <button class="chip on" data-task="text">Тексты и статьи</button>
@@ -356,7 +357,7 @@
 
 <section class="sec rv" id="services">
   <h2>Все услуги — в одном месте</h2>
-  <p class="sec-sub">8 услуг: тяните ленту вправо-влево или листайте стрелками ◀ ▶</p>
+  
   <div class="carousel" id="svcCar">
   <div class="track" id="svcTrack">
     <div class="card-s t-ai"><h3>ИИ-ассистент на ваш ПК</h3><p>Личный помощник на компьютере: тексты, файлы, задачи, память между сессиями. Этот сайт создан и настроен таким же ассистентом.</p><div class="price">1 000 ₽ <small>/ фикс</small></div><div class="ready">● готово</div></div>
@@ -377,7 +378,7 @@
 
 <section class="sec rv" id="ai">
   <h2>Живой ИИ-чат — уже работает</h2>
-  <p class="sec-sub">Посетитель сайта может спросить и сразу получить ответ. Попробуйте прямо сейчас:</p>
+  
   <div class="chat">
     <div class="chat-head"><span class="dot"></span> ИИ-консультант на сайте</div>
     <div class="chat-body" id="chatList">
@@ -392,8 +393,8 @@
 </section>
 
 <section class="sec rv" id="factory">
-  <h2>Собираю контент-заводы под ключ</h2>
-  <p class="sec-sub">Ваш собственный ИИ-цех: ассистент + паспорт бренда + шаблоны + приём заявок. Строю — вы пользуетесь.</p>
+  <h2 style="font-size:clamp(20px,2.6vw,28px)">Собираю контент-заводы: ассистент + паспорт бренда + шаблоны + приём заявок</h2>
+  
   <div class="factory">
     <div class="card-s"><h3>Мини-завод</h3><p>ИИ-ассистент на ваш ПК + шаблоны 3 форматов + инструкция на русском.</p><div class="price">1 000 ₽</div><div class="ready">● старт</div></div>
     <div class="card-s"><h3>Сборочный цех</h3><p>+ паспорт бренда (стиль, тон, запреты) + приём заявок через чат/бота.</p><div class="price">от 2 500 ₽</div><div class="ready">● средний</div></div>
@@ -406,7 +407,7 @@
 
 <section class="sec rv" id="order">
   <h2>Как заказать</h2>
-  <p class="sec-sub">Три шага — и работа началась</p>
+  
   <div class="steps">
     <div class="step"><div class="n">1</div><h3>Напишите в Telegram</h3><p>Пара слов о себе и что нужно. Я отвечу в течение часа.</p></div>
     <div class="step"><div class="n">2</div><h3>Выберите услугу</h3><p>Зафиксируем цену и срок. Никаких скрытых доплат.</p></div>
