@@ -11,7 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23ffc259%27/%3E%3Ctext x=%2732%27 y=%2743%27 font-size=%2734%27 text-anchor=%27middle%27 fill=%27%230f0b06%27%3E%D0%A4%3C/text%3E%3C/svg%3E">
 <title>Шоурум — что вы получите на Битрикс24</title>
 <!--
-  ШОУРУМ-ВИТРИНА · v26 (заявки → уведомления в Telegram)
+  ШОУРУМ-ВИТРИНА · v27 (заявки → сделка в Битрикс24)
   1. TG — ссылки на Telegram (кнопки внизу).
   2. Тексты лицевой части — в блоке .site.
   3. Услуги — карточки в #services.
@@ -428,27 +428,18 @@
     <div class="step"><div class="n">5</div><h3>Сдаю результат</h3><p>Готово + понятная инструкция. Правки по договорённости: что не умею — скажу сразу.</p></div>
   </div>
 
-  <div class="zform" id="zform">
+  <div class="zform" id="zform" style="min-height:430px">
     <h3>Оставить заявку с сайта</h3>
-    <input class="z-i" id="zName" maxlength="60" placeholder="Имя">
-    <input class="z-i" id="zContact" maxlength="60" placeholder="Телефон или ник (MAX / Telegram)">
-    <select class="z-i" id="zService">
-      <option value="">— Что нужно? —</option>
-      <option>ИИ-ассистент на ПК</option><option>Сайт-визитка на Битрикс24</option>
-      <option>Воронка продаж + CRM</option><option>Телеграм-бот с ИИ</option>
-      <option>Настройка Битрикс24</option><option>Микроуслуги через нейросеть</option>
-      <option>Автоматизация и интеграции</option><option>Помощь с компьютером</option>
-      <option>Мини-завод / Сборочный цех</option><option>Завод под ключ</option><option>Другое</option>
-    </select>
-    <textarea class="z-i" id="zText" rows="2" maxlength="500" placeholder="Пара слов о задаче"></textarea>
-    <div class="z-row">
-      <button id="zBtn" type="button">Отправить заявку</button>
-      <span class="z-hint" id="zStatus"></span>
-    </div>
-    <div class="z-msg" id="zMsg"></div>
+    <script data-b24-form="inline/1/3vfz5h" data-skip-moving="true">
+    (function(w,d,u){
+    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://cdn-ru.bitrix24.ru/b39066168/crm/form/loader_1.js');
+    </script>
     <div class="z-links" id="zLinks" style="display:none">
-      <a class="btn" href="https://max.ru/u/f9LHodD0cOIlMLMCM2Byn6ZfG86UNHa3RaQPAkQO8CbN9D8mpQPfaM56ksM" target="_blank" rel="noopener">Написать в MAX</a>
-      <a class="btn ghost" href="https://t.me/mehwarior777" target="_blank" rel="noopener">Telegram</a>
+      Заявка создаст сделку в CRM автоматически. Если форма не открылась:
+      <a class="btn" href="https://max.ru/u/f9LHodD0cOIlMLMCM2Byn6ZfG86UNHa3RaQPAkQO8CbN9D8mpQPfaM56ksM" target="_blank" rel="noopener">напишите в MAX</a>
+      <a class="btn ghost" href="https://t.me/mehwarior777" target="_blank" rel="noopener">или Telegram</a>
     </div>
   </div>
   <div class="center">
@@ -590,7 +581,7 @@ function askAI(q){
   var TG_BOT_TOKEN='8971551469:AAFdptOz6QREh6DbsoiwiXYbx6kqZVN14Gk';          // токен бота уведомлений — пусто = уведомления выключены
   var TG_CHAT_ID='307332235';            // id чата владельца в Telegram (через @userinfobot)
   var zf=document.getElementById('zform');
-  if(zf){
+  if(zf&&document.getElementById('zBtn')){
     var zBtn=document.getElementById('zBtn'), zStatus=document.getElementById('zStatus'),
         zMsg=document.getElementById('zMsg'), zLinks=document.getElementById('zLinks');
     function zGet(id){return (document.getElementById(id).value||'').trim();}
