@@ -11,7 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23ffc259%27/%3E%3Ctext x=%2732%27 y=%2743%27 font-size=%2734%27 text-anchor=%27middle%27 fill=%27%230f0b06%27%3E%D0%A4%3C/text%3E%3C/svg%3E">
 <title>Шоурум — что вы получите на Битрикс24</title>
 <!--
-  ШОУРУМ-ВИТРИНА · v3 (эффекты усилены)
+  ШОУРУМ-ВИТРИНА · v26 (заявки → уведомления в Telegram)
   1. TG — ссылки на Telegram (кнопки внизу).
   2. Тексты лицевой части — в блоке .site.
   3. Услуги — карточки в #services.
@@ -587,6 +587,8 @@ function askAI(q){
   var B24_WEBHOOK='';
   var MAX_URL='https://max.ru/u/f9LHodD0cOIlMLMCM2Byn6ZfG86UNHa3RaQPAkQO8CbN9D8mpQPfaM56ksM';
   var TG_URL='https://t.me/mehwarior777';
+  var TG_BOT_TOKEN='8971551469:AAFdptOz6QREh6DbsoiwiXYbx6kqZVN14Gk';          // токен бота уведомлений — пусто = уведомления выключены
+  var TG_CHAT_ID='307332235';            // id чата владельца в Telegram (через @userinfobot)
   var zf=document.getElementById('zform');
   if(zf){
     var zBtn=document.getElementById('zBtn'), zStatus=document.getElementById('zStatus'),
@@ -596,6 +598,11 @@ function askAI(q){
       var name=zGet('zName'), contact=zGet('zContact'), svc=zGet('zService'), txt=zGet('zText');
       if(!name||!contact){zStatus.textContent='Укажите имя и контакт — так я смогу ответить.';return;}
       var msg='Заявка с сайта:\nИмя: '+name+'\nКонтакт: '+contact+'\nУслуга: '+(svc||'—')+'\nЗадача: '+(txt||'—');
+      if(TG_BOT_TOKEN&&TG_CHAT_ID){
+        var _t=new Date(), _h=('0'+_t.getHours()).slice(-2), _m=('0'+_t.getMinutes()).slice(-2);
+        try{fetch('https://api.telegram.org/bot'+TG_BOT_TOKEN+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({chat_id:TG_CHAT_ID,text:msg+'\nВремя: '+_h+':'+_m})});}catch(e){}
+      }
       zMsg.style.display='none'; zLinks.style.display='none';
       if(B24_WEBHOOK){
         zStatus.textContent='Отправляю…';
