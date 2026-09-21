@@ -11,7 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23ffc259%27/%3E%3Ctext x=%2732%27 y=%2743%27 font-size=%2734%27 text-anchor=%27middle%27 fill=%27%230f0b06%27%3E%D0%A4%3C/text%3E%3C/svg%3E">
 <title>Шоурум — что вы получите на Битрикс24</title>
 <!--
-  ШОУРУМ-ВИТРИНА · v27 (заявки → сделка в Битрикс24)
+  ШОУРУМ-ВИТРИНА · v28 (заявки → сделка в Битрикс24; онлайн-оплата ЮKassa на карточках услуг)
   1. TG — ссылки на Telegram (кнопки внизу).
   2. Тексты лицевой части — в блоке .site.
   3. Услуги — карточки в #services.
@@ -156,6 +156,8 @@
   .card-s p{font-size:14px;color:var(--muted);margin-bottom:14px;line-height:1.6}
   .price{font-weight:800;font-size:17px;color:#fff;letter-spacing:.3px;text-shadow:0 0 16px rgba(var(--a1),.4)}
   .price small{color:var(--muted);font-weight:400;font-size:12px}
+  .pay{display:block;text-align:center;margin-top:10px;background:linear-gradient(120deg,#6a7cff,#37d6c0);color:#fff;font-weight:700;padding:9px 18px;border-radius:11px;font-size:13px;text-decoration:none;box-shadow:0 6px 20px rgba(var(--a1),.35);transition:transform .2s,box-shadow .2s}
+  .pay:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(var(--a1),.6)}
   .ready{font-size:12px;color:var(--green);text-shadow:0 0 10px rgba(61,220,151,.5)}
   /* === услуги: бесконечная карусель вправо-влево === */
   .carousel{position:relative;overflow:hidden;margin:0 auto;width:100%;max-width:none;padding:8px 0 20px;touch-action:pan-y;-webkit-mask-image:linear-gradient(90deg,transparent 0px,#000 26px,#000 calc(100% - 26px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0px,#000 26px,#000 calc(100% - 26px),transparent 100%)}
@@ -370,14 +372,15 @@
   
   <div class="carousel" id="svcCar">
   <div class="track" id="svcTrack">
-    <div class="card-s t-ai"><h3>ИИ-ассистент на ваш ПК</h3><p>Личный помощник на компьютере: тексты, файлы, задачи, память между сессиями. Этот сайт создан и настроен таким же ассистентом.</p><div class="price">1 000 ₽ <small>/ фикс</small></div><div class="ready">● готово</div></div>
-    <div class="card-s t-site"><h3>Сайт-визитка на Битрикс24</h3><p>Одностраничник на бесплатном тарифе: услуги, контакты, форма заявки. Ссылка вида vash-brend.b24.site.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
-    <div class="card-s t-funnel"><h3>Воронка продаж + CRM</h3><p>Базовая комплектация: этапы, сделки, заявки из MAX, Telegram и сайта сами попадают в воронку. Ни один клиент не теряется.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
-    <div class="card-s t-bot"><h3>Телеграм-бот с ИИ</h3><p>Бот, который отвечает на русском: отвечает на вопросы, принимает заявки, работает 24/7.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div></div>
-    <div class="card-s t-b24"><h3>Настройка Битрикс24 под ключ</h3><p>Базовая комплектация: роботы, автоматизация, права доступа, интеграции. Вы получите готовый рабочий портал — и я покажу, как им пользоваться.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div></div>
-    <div class="card-s t-micro"><h3>Микроуслуги через нейросеть</h3><p>Тексты, объявления, презентации, таблицы Excel, описания товаров, ответы клиентам. Быстро и дёшево.</p><div class="price">от 300 ₽</div><div class="ready">● готово</div></div>
-    <div class="card-s t-auto"><h3>Автоматизация и интеграции</h3><p>Связать сайт, Telegram, таблицы и Битрикс через вебхуки и REST API. Рутина — машинам, вы занимаетесь делом.</p><div class="price">от 3 500 ₽</div><div class="ready">● по запросу</div></div>
-    <div class="card-s t-pc"><h3>Помощь с компьютером</h3><p>Настройка, чистка от мусора, установка софта, перенос файлов. Понятно объясню, что и зачем делаю.</p><div class="price">от 500 ₽</div><div class="ready">● по запросу</div></div>
+    <div class="card-s t-ai"><h3>ИИ-ассистент на ваш ПК</h3><p>Личный помощник на компьютере: тексты, файлы, задачи, память между сессиями. Этот сайт создан и настроен таким же ассистентом.</p><div class="price">1 000 ₽ <small>/ фикс</small></div><div class="ready">● готово</div><a class="pay" href="https://yookassa.ru/my/i/arC4bBz6RAZ2/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
+    <div class="card-s t-site"><h3>Сайт-визитка на Битрикс24</h3><p>Одностраничник на бесплатном тарифе: услуги, контакты, форма заявки. Ссылка вида vash-brend.b24.site.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div><a class="pay" href="https://yookassa.ru/my/i/arC4bUgQpv_8/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
+    <div class="card-s t-funnel"><h3>Воронка продаж + CRM</h3><p>Базовая комплектация: этапы, сделки, заявки из MAX, Telegram и сайта сами попадают в воронку. Ни один клиент не теряется.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div><a class="pay" href="https://yookassa.ru/my/i/arC4beRSc092/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
+    <div class="card-s t-bot"><h3>Телеграм-бот с ИИ</h3><p>Бот, который отвечает на русском: отвечает на вопросы, принимает заявки, работает 24/7.</p><div class="price">от 1 500 ₽</div><div class="ready">● готово</div><a class="pay" href="https://yookassa.ru/my/i/arC4bdrABSJC/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
+    <div class="card-s t-b24"><h3>Настройка Битрикс24 под ключ</h3><p>Базовая комплектация: роботы, автоматизация, права доступа, интеграции. Вы получите готовый рабочий портал — и я покажу, как им пользоваться.</p><div class="price">от 2 000 ₽</div><div class="ready">● готово</div><a class="pay" href="https://yookassa.ru/my/i/arC4bVN-fVlX/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
+    <div class="card-s t-micro"><h3>Микроуслуги через нейросеть</h3><p>Тексты, объявления, презентации, таблицы Excel, описания товаров, ответы клиентам. Быстро и дёшево.</p><div class="price">от 300 ₽</div><div class="ready">● готово</div><a class="pay" href="https://yookassa.ru/my/i/arC4bHb9IAw8/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
+    <div class="card-s t-auto"><h3>Автоматизация и интеграции</h3><p>Связать сайт, Telegram, таблицы и Битрикс через вебхуки и REST API. Рутина — машинам, вы занимаетесь делом.</p><div class="price">от 3 500 ₽</div><div class="ready">● по запросу</div><a class="pay" href="https://yookassa.ru/my/i/arC4bRtcAwEh/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
+    <div class="card-s t-pc"><h3>Помощь с компьютером</h3><p>Настройка, чистка от мусора, установка софта, перенос файлов. Понятно объясню, что и зачем делаю.</p><div class="price">от 500 ₽</div><div class="ready">● по запросу</div><a class="pay" href="https://yookassa.ru/my/i/arC4bQlg2oRs/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
+    <div class="card-s t-excel"><h3>Excel / презентация</h3><p>Сводные таблицы, прайсы, каталоги, отчёты из ваших файлов — готовый документ, причёсанный под задачу.</p><div class="price">700 ₽ <small>/ фикс</small></div><div class="ready">● готово</div><a class="pay" href="https://yookassa.ru/my/i/arC4bCb4Ozv1/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
   </div>
   </div>
   <div class="car-nav">
@@ -406,11 +409,11 @@
   <h2 style="font-size:clamp(20px,2.6vw,28px)">Собираю контент-заводы: ассистент + паспорт бренда + шаблоны + приём заявок</h2>
   
   <div class="factory">
-    <div class="card-s"><h3>Мини-завод</h3><p>ИИ-ассистент на ваш ПК + шаблоны 3 форматов + инструкция на русском. Готовый цех контента за 1–2 дня.</p><div class="price">цена под задачу</div><div class="ready">● старт</div></div>
+    <div class="card-s"><h3>Мини-завод</h3><p>ИИ-ассистент на ваш ПК + шаблоны 3 форматов + инструкция на русском. Готовый цех контента за 1–2 дня.</p><div class="price">1 000 ₽ <small>/ фикс</small></div><div class="ready">● старт</div><a class="pay" href="https://yookassa.ru/my/i/arC4bHkYcaqq/a" target="_blank" rel="noopener">Оплатить онлайн</a></div>
     <div class="card-s"><h3>Сборочный цех</h3><p>+ паспорт бренда (стиль, тон, запреты) + приём заявок через чат/бота. Контент строго в вашем стиле — без переделок.</p><div class="price">цена по объёму</div><div class="ready">● средний</div></div>
     <div class="card-s"><h3>Завод под ключ</h3><p>+ воронка заявок в Битрикс24, ОТК-пробная партия. Установленный ИИ обслуживает завод сам — обучение и поддержка не нужны.</p><div class="price">цена после брифа</div><div class="ready">● полный</div></div>
   </div>
-  <p class="factory-note">У завода нет единой цены — есть комплектация. Напишите, что нужно: назову точную стоимость и срок после короткого брифа (5–10 минут).</p>
+  <p class="factory-note">Мини-завод — фиксированные 1 000 ₽. Сборочный цех и завод под ключ — точная цена после короткого брифа (5–10 минут): комплектация, объём и срок зависят от вашей задачи.</p>
   <div class="center">
     <a class="btn" href="https://max.ru/u/f9LHodD0cOIlMLMCM2Byn6ZfG86UNHa3RaQPAkQO8CbN9D8mpQPfaM56ksM" target="_blank" rel="noopener">Обсудить ваш завод в MAX</a>
     <a class="btn ghost" href="https://t.me/mehwarior777" target="_blank" rel="noopener">Или в Telegram</a>
